@@ -1,0 +1,17 @@
+{
+  "name": "tracker",
+  "displayName": "tracker",
+  "expo": {
+    "name": "tracker",
+    "slug": "tracker",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
