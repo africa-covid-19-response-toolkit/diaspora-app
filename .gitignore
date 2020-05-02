@@ -60,3 +60,9 @@ buck-out/
 
 # Expo
 .expo/*
+
+
+# Firebase
+
+GoogleService-Info.plist
+google-services.json

@@ -1,10 +1,16 @@
 {
-  "name": "tracker",
-  "displayName": "tracker",
+  "name": "ECRT Diaspora",
+  "displayName": "ECRT Diaspora",
   "expo": {
-    "name": "tracker",
-    "slug": "tracker",
+    "name": "ECRT Diaspora",
+    "slug": "ecrt-diaspora",
     "version": "1.0.0",
+    "icon": "./src/assets/icon.png",
+    "splash": {
+      "image": "./src/assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
     "platforms": [
       "ios",
       "android",
@@ -12,6 +18,16 @@
     ],
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "android": {
+      "package": "app.ecrt.tracker",
+      "googleServicesFile": "./src/api/firebase/config/google-services.json"
+    },
+    "ios": {
+      "bundleIdentifier": "app.ecrt.tracker",
+      "googleServicesFile": "./src/api/firebase/config/GoogleService-Info.plist",
+      "supportsTablet": true,
+      "requireFullScreen": true
+    }
   }
 }
