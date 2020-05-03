@@ -8,7 +8,10 @@ import { Platform, YellowBox } from 'react-native';
 import { decode, encode } from 'base-64';
 
 export const firebaseTempFixe = () => {
+  // Suppress warnings.
+  console.ignoredYellowBox = ['Setting a timer'];
   YellowBox.ignoreWarnings(['Setting a timer']);
+
   if (!global.btoa) {
     global.btoa = encode;
   }

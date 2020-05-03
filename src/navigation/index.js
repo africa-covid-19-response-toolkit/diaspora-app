@@ -78,7 +78,7 @@ const AppTabs = createBottomTabNavigator();
 const AppTabsScreen = () => {
   const { t } = React.useContext(LocalizationContext);
   return (
-    <AppTabs.Navigator>
+    <AppTabs.Navigator initialRouteName="Check">
       <AppTabs.Screen
         name="Home"
         component={HomeStackScreen}

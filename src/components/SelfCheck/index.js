@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 import { LocalizationContext } from '../../context/language';
 
 import { firestore } from '../../api/firebase';
+import Questions from './Questions';
 
 const SelfCheck = () => {
   const [questions, setQuestions] = useState({});
@@ -35,15 +36,9 @@ const SelfCheck = () => {
 
   return (
     <View>
-      {Object.keys(questions).map((key) => (
-        <Text style={styles.questions} key={key}>
-          👉{questions[key].text[locale]}
-        </Text>
-      ))}
+      <Questions questions={questions} />
     </View>
   );
 };
 
 export default SelfCheck;
-
-const styles = StyleSheet.create({ questions: { margin: 10, fontSize: 16 } });

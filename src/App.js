@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Updates from 'expo-updates';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, AsyncStorage } from 'react-native';
 import i18n from 'i18n-js';
 import Navigation from './navigation';
 
@@ -15,12 +15,13 @@ import { firebaseTempFixe } from './helpers';
 i18n.fallbacks = true;
 i18n.translations = { eng, amh, orm, tig };
 
+const DEFAULT_LOCALE = 'eng';
+
 // Do not remove. a temporary fix for firebase-js.
 firebaseTempFixe();
 
 export default function App() {
-  // TODO: Add language picker.
-  const [locale, setLocale] = React.useState('amh');
+  const [locale, setLocale] = React.useState();
   const localizationContext = React.useMemo(
     () => ({
       t: (scope, options) => i18n.t(scope, { locale, ...options }),
@@ -31,6 +32,19 @@ export default function App() {
   );
 
   React.useEffect(() => {
+    const loadUserLocale = async () => {
+      try {
+        const userLocale = await AsyncStorage.getItem('locale');
+        if (userLocale) setLocale(userLocale);
+        else {
+          await AsyncStorage.setItem('locale', DEFAULT_LOCALE);
+          setLocale(DEFAULT_LOCALE);
+          console.log('HERE');
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
     const checkForeUpdate = async () => {
       try {
         const update = await Updates.checkForUpdateAsync();
@@ -43,6 +57,7 @@ export default function App() {
         // handle or log error
       }
     };
+    loadUserLocale();
     checkForeUpdate();
   }, []);
 

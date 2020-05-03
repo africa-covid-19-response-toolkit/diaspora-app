@@ -1,0 +1,393 @@
+{
+    "1": {
+        "type": "question",
+        "text": {
+            "amh": "እድሜዎ 18  ዓመት ወይም ከዚያ  በላይ ነው?",
+            "tir": "እድሜዎ 18  ዓመት ወይም ከዚያ  በላይ ነው?",
+            "eng": "Are you 18 or older?",
+            "orm": "እድሜዎ 18  ዓመት ወይም ከዚያ  በላይ ነው?"
+        },
+        "actions": {
+            "no": {
+                "next": "2",
+                "label": "ACTION_BUTTON_NO"
+            },
+            "yes": {
+                "next": "3",
+                "label": "ACTION_BUTTON_YES"
+            }
+        }
+    },
+    "2": {
+        "type": "close",
+        "text": {
+            "amh": "Unfortunately, for legal reasons, you must be at least 18 years old to use this assessment tool. Please have an adult help you if you'd like to try again. Goodbye.",
+            "tir": "Unfortunately, for legal reasons, you must be at least 18 years old to use this assessment tool. Please have an adult help you if you'd like to try again. Goodbye.",
+            "eng": "Unfortunately, for legal reasons, you must be at least 18 years old to use this assessment tool. Please have an adult help you if you'd like to try again. Goodbye.",
+            "orm": "Unfortunately, for legal reasons, you must be at least 18 years old to use this assessment tool. Please have an adult help you if you'd like to try again. Goodbye."
+        }
+    },
+    "3": {
+        "type": "question",
+        "text": {
+            "eng": "Are you 60 or older?",
+            "orm": "እድሜዎ 60 ዓመት ወይም  ከዚያ  በላይ ነው?",
+            "tig": "እድሜዎ 60 ዓመት ወይም  ከዚያ  በላይ ነው?",
+            "amh": "እድሜዎ 60 ዓመት ወይም  ከዚያ  በላይ ነው?"
+        },
+        "actions": {
+            "no": {
+                "next": "4",
+                "value": {
+                    "age": "18-60"
+                },
+                "label": "ACTION_BUTTON_NO"
+            },
+            "yes": {
+                "next": "4",
+                "value": {
+                    "age": "60+"
+                },
+                "label": "ACTION_BUTTON_YES"
+            }
+        }
+    },
+    "4": {
+        "type": "question",
+        "text": {
+            "eng": "Have you been in contact with someone known to have coronavirus also known as COVID-19?",
+            "orm": "Have you been in contact with someone known to have coronavirus also known as COVID-19?",
+            "tig": "Have you been in contact with someone known to have coronavirus also known as COVID-19?",
+            "amh": "Have you been in contact with someone known to have coronavirus also known as COVID-19?"
+        },
+        "actions": {
+            "yes": {
+                "next": "5",
+                "value": {
+                    "COVIDContact": true
+                },
+                "label": "ACTION_BUTTON_YES"
+            },
+            "no": {
+                "next": "5",
+                "value": {
+                    "COVIDContact": false
+                },
+                "label": "ACTION_BUTTON_NO"
+            },
+            "unknown": {
+                "next": "5",
+                "value": {
+                    "COVIDContact": true
+                },
+                "label": "ACTION_BUTTON_NOT_SURE"
+            }
+        }
+    },
+    "5": {
+        "type": "question",
+        "text": {
+            "eng": "Have you been told by a public health official or your employer you may have been exposed to coronavirus also known as COVID-19?",
+            "orm": "Have you been told by a public health official or your employer you may have been exposed to coronavirus also known as COVID-19?",
+            "tig": "Have you been told by a public health official or your employer you may have been exposed to coronavirus also known as COVID-19?",
+            "amh": "Have you been told by a public health official or your employer you may have been exposed to coronavirus also known as COVID-19?"
+        },
+        "actions": {
+            "yes": {
+                "next": "6",
+                "value": {
+                    "COVIDExposure": true
+                },
+                "label": "ACTION_BUTTON_YES"
+            },
+            "no": {
+                "next": "6",
+                "value": {
+                    "COVIDExposure": false
+                },
+                "label": "ACTION_BUTTON_NO"
+            },
+            "unknown": {
+                "next": "6",
+                "value": {
+                    "COVIDExposure": true
+                },
+                "label": "ACTION_BUTTON_NOT_SURE"
+            }
+        }
+    },
+    "6": {
+        "type": "question",
+        "text": {
+            "eng": "Have you started coughing within the past few days?",
+            "orm": "Have you started coughing within the past few days?",
+            "tig": "Have you started coughing within the past few days?",
+            "amh": "Have you started coughing within the past few days?"
+        },
+        "actions": {
+            "yes": {
+                "next": "7",
+                "value": {
+                    "cough": true
+                },
+                "label": "ACTION_BUTTON_YES"
+            },
+            "no": {
+                "next": "8",
+                "value": {
+                    "cough": false
+                },
+                "label": "ACTION_BUTTON_NO"
+            },
+            "unknown": {
+                "next": "7",
+                "value": {
+                    "cough": true
+                },
+                "label": "ACTION_BUTTON_NOT_SURE"
+            }
+        }
+    },
+    "7": {
+        "type": "question",
+        "text": {
+            "eng": "Based on your reported symptoms, you should seek care immediately.",
+            "orm": "Based on your reported symptoms, you should seek care immediately.",
+            "tig": "Based on your reported symptoms, you should seek care immediately.",
+            "amh": "Based on your reported symptoms, you should seek care immediately."
+        }
+    },
+    "8": {
+        "type": "question",
+        "text": {
+            "eng": "Do you have a fever that's 100.4 degrees Fahrenheit or higher?",
+            "orm": "Do you have a fever that's 100.4 degrees Fahrenheit or higher?",
+            "tig": "Do you have a fever that's 100.4 degrees Fahrenheit or higher?",
+            "amh": "Do you have a fever that's 100.4 degrees Fahrenheit or higher?"
+        },
+        "actions": {
+            "yes": {
+                "next": "9",
+                "value": {
+                    "fever": true
+                },
+                "label": "ACTION_BUTTON_YES"
+            },
+            "no": {
+                "next": "9",
+                "value": {
+                    "fever": false
+                },
+                "label": "ACTION_BUTTON_NO"
+            },
+            "unknown": {
+                "next": "9",
+                "value": {
+                    "fever": false
+                },
+                "label": "ACTION_BUTTON_NOT_SURE"
+            }
+        }
+    },
+    "9": {
+        "type": "question",
+        "text": {
+            "eng": "Are you experiencing new shortness of breath?",
+            "orm": "Are you experiencing new shortness of breath?",
+            "tig": "Are you experiencing new shortness of breath?",
+            "amh": "Are you experiencing new shortness of breath?"
+        },
+        "actions": {
+            "yes": {
+                "next": "10",
+                "value": {
+                    "shortnessOfBreath": true
+                },
+                "label": "ACTION_BUTTON_YES"
+            },
+            "no": {
+                "next": "10",
+                "value": {
+                    "shortnessOfBreath": true
+                },
+                "label": "ACTION_BUTTON_NO"
+            },
+            "unknown": {
+                "next": "10",
+                "value": {
+                    "shortnessOfBreath": true
+                },
+                "label": "ACTION_BUTTON_NOT_SURE"
+            }
+        }
+    },
+    "10": {
+        "type": "question",
+        "text": {
+            "eng": "Are you experiencing new sore throat?",
+            "orm": "Are you experiencing new sore throat?",
+            "tig": "Are you experiencing new sore throat?",
+            "amh": "Are you experiencing new sore throat?"
+        },
+        "actions": {
+            "yes": {
+                "next": "11",
+                "value": {
+                    "soarThroat": true
+                },
+                "label": "ACTION_BUTTON_YES"
+            },
+            "no": {
+                "next": "11",
+                "value": {
+                    "soarThroat": true
+                },
+                "label": "ACTION_BUTTON_NO"
+            },
+            "unknown": {
+                "next": "11",
+                "value": {
+                    "soarThroat": true
+                },
+                "label": "ACTION_BUTTON_NOT_SURE"
+            }
+        }
+    },
+    "11": {
+        "type": "question",
+        "text": {
+            "eng": "Do you have any muscle aches?",
+            "orm": "Do you have any muscle aches?",
+            "tig": "Do you have any muscle aches?",
+            "amh": "Do you have any muscle aches?"
+        },
+        "actions": {
+            "yes": {
+                "next": "12",
+                "value": {
+                    "muscleAche": true
+                },
+                "label": "ACTION_BUTTON_YES"
+            },
+            "no": {
+                "next": "12",
+                "value": {
+                    "muscleAche": true
+                },
+                "label": "ACTION_BUTTON_NO"
+            },
+            "unknown": {
+                "next": "12",
+                "value": {
+                    "muscleAche": true
+                },
+                "label": "ACTION_BUTTON_NOT_SURE"
+            }
+        }
+    },
+    "12": {
+        "type": "question",
+        "text": {
+            "eng": "Have you recently been in a skilled nursing facility, like a nursing home?",
+            "orm": "Have you recently been in a skilled nursing facility, like a nursing home?",
+            "tig": "Have you recently been in a skilled nursing facility, like a nursing home?",
+            "amh": "Have you recently been in a skilled nursing facility, like a nursing home?"
+        },
+        "actions": {
+            "yes": {
+                "next": "13",
+                "value": {
+                    "nurseFacility": true
+                },
+                "label": "ACTION_BUTTON_YES"
+            },
+            "no": {
+                "next": "13",
+                "value": {
+                    "nurseFacility": true
+                },
+                "label": "ACTION_BUTTON_NO"
+            },
+            "unknown": {
+                "next": "13",
+                "value": {
+                    "nurseFacility": true
+                },
+                "label": "ACTION_BUTTON_NOT_SURE"
+            }
+        }
+    },
+    "13": {
+        "type": "question",
+        "text": {
+            "eng": "Do you have any conditions such as Congestive Heart Disease, Kidney Disease, Liver Disease or Lung Disease?",
+            "orm": "Do you have any conditions such as Congestive Heart Disease, Kidney Disease, Liver Disease or Lung Disease?",
+            "tig": "Do you have any conditions such as Congestive Heart Disease, Kidney Disease, Liver Disease or Lung Disease?",
+            "amh": "Do you have any conditions such as Congestive Heart Disease, Kidney Disease, Liver Disease or Lung Disease?"
+        },
+        "actions": {
+            "yes": {
+                "next": "14",
+                "value": {
+                    "heartCondition": true
+                },
+                "label": "ACTION_BUTTON_YES"
+            },
+            "no": {
+                "next": "14",
+                "value": {
+                    "heartCondition": true
+                },
+                "label": "ACTION_BUTTON_NO"
+            },
+            "unknown": {
+                "next": "14",
+                "value": {
+                    "heartCondition": true
+                },
+                "label": "ACTION_BUTTON_NOT_SURE"
+            }
+        }
+    },
+    "14": {
+        "type": "question",
+        "text": {
+            "eng": "Do you have a weakened immune system such as patients that have had a transplant or are receiving chemotherapy?",
+            "orm": "Do you have a weakened immune system such as patients that have had a transplant or are receiving chemotherapy?",
+            "tig": "Do you have a weakened immune system such as patients that have had a transplant or are receiving chemotherapy?",
+            "amh": "Do you have a weakened immune system such as patients that have had a transplant or are receiving chemotherapy?"
+        },
+        "actions": {
+            "yes": {
+                "next": "15",
+                "value": {
+                    "immunoCompromised": true
+                },
+                "label": "ACTION_BUTTON_YES"
+            },
+            "no": {
+                "next": "15",
+                "value": {
+                    "immunoCompromised": true
+                },
+                "label": "ACTION_BUTTON_NO"
+            },
+            "unknown": {
+                "next": "15",
+                "value": {
+                    "immunoCompromised": true
+                },
+                "label": "ACTION_BUTTON_NOT_SURE"
+            }
+        }
+    },
+    "15": {
+        "type": "done",
+        "text": {
+            "eng": "Based on your responses, the best thing to do is to continue monitoring how you feel, and practice good hand hygiene and social distancing. If you develop additional symptoms, you can use this tool again or contact your doctor by phone or eCare before coming to a clinic or hospital. You may also contact the Virtual Clinic or schedule a telehealth visit through eCare. Goodbye.",
+            "orm": "Based on your responses, the best thing to do is to continue monitoring how you feel, and practice good hand hygiene and social distancing. If you develop additional symptoms, you can use this tool again or contact your doctor by phone or eCare before coming to a clinic or hospital. You may also contact the Virtual Clinic or schedule a telehealth visit through eCare. Goodbye.",
+            "tig": "Based on your responses, the best thing to do is to continue monitoring how you feel, and practice good hand hygiene and social distancing. If you develop additional symptoms, you can use this tool again or contact your doctor by phone or eCare before coming to a clinic or hospital. You may also contact the Virtual Clinic or schedule a telehealth visit through eCare. Goodbye.",
+            "amh": "Based on your responses, the best thing to do is to continue monitoring how you feel, and practice good hand hygiene and social distancing. If you develop additional symptoms, you can use this tool again or contact your doctor by phone or eCare before coming to a clinic or hospital. You may also contact the Virtual Clinic or schedule a telehealth visit through eCare. Goodbye."
+        }
+    }
+}
