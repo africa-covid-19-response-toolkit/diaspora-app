@@ -46,4 +46,4 @@ const SelfCheck = () => {
 
 export default SelfCheck;
 
-const styles = StyleSheet.create({ questions: { margin: 10, fontSize: 20 } });
+const styles = StyleSheet.create({ questions: { margin: 10, fontSize: 16 } });

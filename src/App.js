@@ -1,10 +1,26 @@
 import React from 'react';
 import * as Updates from 'expo-updates';
-import { StyleSheet, Text, View } from 'react-native';
-import * as Localization from 'expo-localization';
+import { StyleSheet } from 'react-native';
 import i18n from 'i18n-js';
-
 import Navigation from './navigation';
+
+/**
+ * Temporary firestore issue fix
+ */
+
+import { decode, encode } from 'base-64';
+
+if (!global.btoa) {
+  global.btoa = encode;
+}
+
+if (!global.atob) {
+  global.atob = decode;
+}
+
+window.addEventListener = (x) => x;
+
+// End of fix
 
 import eng from './localization/eng/translation.json';
 import amh from './localization/amh/translation.json';

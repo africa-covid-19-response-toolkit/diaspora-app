@@ -6,7 +6,7 @@ import { auth } from '../api/firebase';
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text>Home Screen</Text>
+      <Text>Home Screen!</Text>
 
       <TouchableOpacity
         style={{ marginVertical: 50 }}
