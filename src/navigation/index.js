@@ -16,6 +16,7 @@ import SignInScreen from '../screens/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import FullScreen from '../screens/FullScreen';
 import SelfCheckScreen from '../screens/SelfCheckScreen';
+import { LocalizationContext } from '../context/language';
 
 const AuthStack = createStackNavigator();
 const AuthStackScreen = () => (
@@ -74,41 +75,47 @@ const FullScreenStackScreen = () => (
 );
 
 const AppTabs = createBottomTabNavigator();
-const AppTabsScreen = () => (
-  <AppTabs.Navigator>
-    <AppTabs.Screen
-      name="Home"
-      component={HomeStackScreen}
-      options={{
-        tabBarIcon: (props) => (
-          <Ionicons name="ios-home" size={props.size} color={props.color} />
-        ),
-      }}
-    />
-    <AppTabs.Screen
-      name="Check"
-      component={SelfCheckStackScreen}
-      options={{
-        tabBarIcon: (props) => (
-          <MaterialCommunityIcons
-            name="stethoscope"
-            size={props.size}
-            color={props.color}
-          />
-        ),
-      }}
-    />
-    <AppTabs.Screen
-      name="Stats"
-      component={StatsStackScreen}
-      options={{
-        tabBarIcon: (props) => (
-          <Ionicons name="ios-stats" size={props.size} color={props.color} />
-        ),
-      }}
-    />
-  </AppTabs.Navigator>
-);
+const AppTabsScreen = () => {
+  const { t } = React.useContext(LocalizationContext);
+  return (
+    <AppTabs.Navigator>
+      <AppTabs.Screen
+        name="Home"
+        component={HomeStackScreen}
+        options={{
+          tabBarLabel: t('TABS_HOME'),
+          tabBarIcon: (props) => (
+            <Ionicons name="ios-home" size={props.size} color={props.color} />
+          ),
+        }}
+      />
+      <AppTabs.Screen
+        name="Check"
+        component={SelfCheckStackScreen}
+        options={{
+          tabBarLabel: t('TABS_CHECK'),
+          tabBarIcon: (props) => (
+            <MaterialCommunityIcons
+              name="stethoscope"
+              size={props.size}
+              color={props.color}
+            />
+          ),
+        }}
+      />
+      <AppTabs.Screen
+        name="Stats"
+        component={StatsStackScreen}
+        options={{
+          tabBarLabel: t('TABS_STATS'),
+          tabBarIcon: (props) => (
+            <Ionicons name="ios-stats" size={props.size} color={props.color} />
+          ),
+        }}
+      />
+    </AppTabs.Navigator>
+  );
+};
 
 const RootStack = createStackNavigator();
 const RootStackScreen = () => {

@@ -42,6 +42,6 @@ const styles = StyleSheet.create({
   buttonsWrapper: {
     flexDirection: 'row',
   },
-  button: { margin: 50, padding: 50 },
+  button: { marginTop: 20, margin: 10 },
   buttonText: { color: 'blue', fontSize: 20 },
 });

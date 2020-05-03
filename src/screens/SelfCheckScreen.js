@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import SelfCheck from '../components/SelfCheck';
 
 const SelfCheckScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text>Self Check</Text>
+      <SelfCheck />
     </View>
   );
 };

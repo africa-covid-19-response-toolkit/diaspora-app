@@ -19,6 +19,10 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "updates": {
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD"
+    },
     "android": {
       "package": "app.ecrt.tracker",
       "googleServicesFile": "./src/api/firebase/config/google-services.json"
@@ -28,6 +32,8 @@
       "googleServicesFile": "./src/api/firebase/config/GoogleService-Info.plist",
       "supportsTablet": true,
       "requireFullScreen": true
-    }
+    },
+    "description": "App built to help the diaspora tackle issues related to COVID-19. Developed by Ethiopia COVID-19 Response team",
+    "githubUrl": "https://github.com/africa-covid-19-response-toolkit/diaspora-app"
   }
 }
