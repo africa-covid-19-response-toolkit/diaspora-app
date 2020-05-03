@@ -18,7 +18,7 @@
     "expo": "~37.0.3",
     "expo-localization": "^8.1.0",
     "expo-updates": "~0.1.0",
-    "firebase": "^7.9.0",
+    "firebase": "^7.14.2",
     "i18n-js": "^3.5.1",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
