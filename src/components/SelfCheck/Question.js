@@ -10,7 +10,15 @@ const QuestionButton = ({ text, onPress }) => (
 
 const Question = ({ question = {}, onNext }) => {
   const { locale, t } = React.useContext(LocalizationContext);
-  const actions = question.actions || {};
+  let actions = question.actions || {};
+
+  actions = Object.keys(actions)
+    .sort(function (a, b) {
+      return actions[a].order - actions[b].order;
+    })
+    .map(function (category) {
+      return actions[category];
+    });
 
   return (
     <View style={styles.container}>

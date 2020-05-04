@@ -67,4 +67,4 @@ web-build
 # Firebase
 GoogleService-Info.plist
 google-services.json
-.firebase
+.firebase/hosting*

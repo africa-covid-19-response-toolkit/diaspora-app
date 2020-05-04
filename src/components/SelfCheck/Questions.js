@@ -3,6 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import { isEmpty } from 'lodash';
 
 import Question from './Question';
+import LanguageSelect from '../LanguageSelect';
 
 const Questions = ({ questions = {} }) => {
   if (isEmpty(questions)) return null;
@@ -10,10 +11,9 @@ const Questions = ({ questions = {} }) => {
   const [answers, setAnswers] = useState({});
   const [nextQuestion, setNextQuestion] = useState(1);
 
-  console.log(answers);
-
   return (
     <View>
+      <LanguageSelect />
       <Question
         question={questions[nextQuestion]}
         onNext={(next, value) => {

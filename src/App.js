@@ -31,20 +31,28 @@ export default function App() {
     [locale]
   );
 
+  // Load usr locale.
   React.useEffect(() => {
     const loadUserLocale = async () => {
-      try {
+      if (locale) {
+        setLocale(locale);
+        await AsyncStorage.setItem('locale', locale);
+      } else {
         const userLocale = await AsyncStorage.getItem('locale');
-        if (userLocale) setLocale(userLocale);
-        else {
-          await AsyncStorage.setItem('locale', DEFAULT_LOCALE);
-          setLocale(DEFAULT_LOCALE);
-          console.log('HERE');
+        if (userLocale) {
+          console.log('here', userLocale);
+          setLocale(userLocale);
+          await AsyncStorage.setItem('locale', userLocale);
+          return;
         }
-      } catch (error) {
-        console.log(error);
+        setLocale(DEFAULT_LOCALE);
+        await AsyncStorage.setItem('locale', DEFAULT_LOCALE);
       }
     };
+    loadUserLocale();
+  }, [locale]);
+
+  React.useEffect(() => {
     const checkForeUpdate = async () => {
       try {
         const update = await Updates.checkForUpdateAsync();
@@ -57,7 +65,6 @@ export default function App() {
         // handle or log error
       }
     };
-    loadUserLocale();
     checkForeUpdate();
   }, []);
 

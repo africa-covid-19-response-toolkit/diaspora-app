@@ -9,10 +9,12 @@
         },
         "actions": {
             "no": {
+                "order": 2,
                 "next": "2",
                 "label": "ACTION_BUTTON_NO"
             },
             "yes": {
+                "order": 1,
                 "next": "3",
                 "label": "ACTION_BUTTON_YES"
             }
@@ -37,6 +39,7 @@
         },
         "actions": {
             "no": {
+                "order": 2,
                 "next": "4",
                 "value": {
                     "age": "18-60"
@@ -44,6 +47,7 @@
                 "label": "ACTION_BUTTON_NO"
             },
             "yes": {
+                "order": 1,
                 "next": "4",
                 "value": {
                     "age": "60+"
@@ -62,6 +66,7 @@
         },
         "actions": {
             "yes": {
+                "order": 1,
                 "next": "5",
                 "value": {
                     "COVIDContact": true
@@ -69,6 +74,7 @@
                 "label": "ACTION_BUTTON_YES"
             },
             "no": {
+                "order": 2,
                 "next": "5",
                 "value": {
                     "COVIDContact": false
@@ -76,6 +82,7 @@
                 "label": "ACTION_BUTTON_NO"
             },
             "unknown": {
+                "order": 3,
                 "next": "5",
                 "value": {
                     "COVIDContact": true
@@ -94,6 +101,7 @@
         },
         "actions": {
             "yes": {
+                "order": 1,
                 "next": "6",
                 "value": {
                     "COVIDExposure": true
@@ -101,6 +109,7 @@
                 "label": "ACTION_BUTTON_YES"
             },
             "no": {
+                "order": 2,
                 "next": "6",
                 "value": {
                     "COVIDExposure": false
@@ -108,6 +117,7 @@
                 "label": "ACTION_BUTTON_NO"
             },
             "unknown": {
+                "order": 3,
                 "next": "6",
                 "value": {
                     "COVIDExposure": true
@@ -126,6 +136,7 @@
         },
         "actions": {
             "yes": {
+                "order": 1,
                 "next": "7",
                 "value": {
                     "cough": true
@@ -133,6 +144,7 @@
                 "label": "ACTION_BUTTON_YES"
             },
             "no": {
+                "order": 2,
                 "next": "8",
                 "value": {
                     "cough": false
@@ -140,6 +152,7 @@
                 "label": "ACTION_BUTTON_NO"
             },
             "unknown": {
+                "order": 3,
                 "next": "7",
                 "value": {
                     "cough": true
@@ -167,6 +180,7 @@
         },
         "actions": {
             "yes": {
+                "order": 1,
                 "next": "9",
                 "value": {
                     "fever": true
@@ -174,6 +188,7 @@
                 "label": "ACTION_BUTTON_YES"
             },
             "no": {
+                "order": 2,
                 "next": "9",
                 "value": {
                     "fever": false
@@ -181,6 +196,7 @@
                 "label": "ACTION_BUTTON_NO"
             },
             "unknown": {
+                "order": 3,
                 "next": "9",
                 "value": {
                     "fever": false
@@ -199,6 +215,7 @@
         },
         "actions": {
             "yes": {
+                "order": 1,
                 "next": "10",
                 "value": {
                     "shortnessOfBreath": true
@@ -206,6 +223,7 @@
                 "label": "ACTION_BUTTON_YES"
             },
             "no": {
+                "order": 2,
                 "next": "10",
                 "value": {
                     "shortnessOfBreath": true
@@ -213,6 +231,7 @@
                 "label": "ACTION_BUTTON_NO"
             },
             "unknown": {
+                "order": 3,
                 "next": "10",
                 "value": {
                     "shortnessOfBreath": true
@@ -231,6 +250,7 @@
         },
         "actions": {
             "yes": {
+                "order": 1,
                 "next": "11",
                 "value": {
                     "soarThroat": true
@@ -238,6 +258,7 @@
                 "label": "ACTION_BUTTON_YES"
             },
             "no": {
+                "order": 2,
                 "next": "11",
                 "value": {
                     "soarThroat": true
@@ -245,6 +266,7 @@
                 "label": "ACTION_BUTTON_NO"
             },
             "unknown": {
+                "order": 3,
                 "next": "11",
                 "value": {
                     "soarThroat": true
@@ -263,6 +285,7 @@
         },
         "actions": {
             "yes": {
+                "order": 1,
                 "next": "12",
                 "value": {
                     "muscleAche": true
@@ -270,6 +293,7 @@
                 "label": "ACTION_BUTTON_YES"
             },
             "no": {
+                "order": 2,
                 "next": "12",
                 "value": {
                     "muscleAche": true
@@ -277,6 +301,7 @@
                 "label": "ACTION_BUTTON_NO"
             },
             "unknown": {
+                "order": 3,
                 "next": "12",
                 "value": {
                     "muscleAche": true
@@ -295,6 +320,7 @@
         },
         "actions": {
             "yes": {
+                "order": 1,
                 "next": "13",
                 "value": {
                     "nurseFacility": true
@@ -302,6 +328,7 @@
                 "label": "ACTION_BUTTON_YES"
             },
             "no": {
+                "order": 2,
                 "next": "13",
                 "value": {
                     "nurseFacility": true
@@ -309,6 +336,7 @@
                 "label": "ACTION_BUTTON_NO"
             },
             "unknown": {
+                "order": 3,
                 "next": "13",
                 "value": {
                     "nurseFacility": true
@@ -327,6 +355,7 @@
         },
         "actions": {
             "yes": {
+                "order": 1,
                 "next": "14",
                 "value": {
                     "heartCondition": true
@@ -334,6 +363,7 @@
                 "label": "ACTION_BUTTON_YES"
             },
             "no": {
+                "order": 2,
                 "next": "14",
                 "value": {
                     "heartCondition": true
@@ -341,6 +371,7 @@
                 "label": "ACTION_BUTTON_NO"
             },
             "unknown": {
+                "order": 3,
                 "next": "14",
                 "value": {
                     "heartCondition": true
@@ -359,6 +390,7 @@
         },
         "actions": {
             "yes": {
+                "order": 1,
                 "next": "15",
                 "value": {
                     "immunoCompromised": true
@@ -366,6 +398,7 @@
                 "label": "ACTION_BUTTON_YES"
             },
             "no": {
+                "order": 2,
                 "next": "15",
                 "value": {
                     "immunoCompromised": true
@@ -373,6 +406,7 @@
                 "label": "ACTION_BUTTON_NO"
             },
             "unknown": {
+                "order": 3,
                 "next": "15",
                 "value": {
                     "immunoCompromised": true
