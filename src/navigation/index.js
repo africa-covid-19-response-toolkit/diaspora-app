@@ -5,9 +5,12 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { auth } from '../api/firebase';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { View, Image, Platform } from 'react-native';
 
 // Components
 import Loading from '../components/Loading';
+
+const TAB_ICON_SIZE = 30;
 
 // Screens
 import HomeScreen from '../screens/HomeScreen';
@@ -17,6 +20,36 @@ import SignUpScreen from '../screens/SignUpScreen';
 import FullScreen from '../screens/FullScreen';
 import SelfCheckScreen from '../screens/SelfCheckScreen';
 import { LocalizationContext } from '../context/language';
+import LanguageSelect from '../components/LanguageSelect';
+
+const headerOptions = (props) => ({
+  headerTitle: null,
+  headerStyle: { backgroundColor: '#fdd30e' },
+  headerLeft: () => (
+    <View
+      style={{
+        marginHorizontal: 16,
+        paddingBottom: Platform.OS === 'ios' ? 10 : 0,
+      }}
+    >
+      <Image
+        style={{ width: 40, height: 40 }}
+        resizeMode="contain"
+        source={require('../assets/ecrt_logo.png')}
+      />
+    </View>
+  ),
+  headerRight: () => (
+    <View
+      style={{
+        marginHorizontal: 16,
+        paddingBottom: Platform.OS === 'ios' ? 10 : 0,
+      }}
+    >
+      <LanguageSelect />
+    </View>
+  ),
+});
 
 const AuthStack = createStackNavigator();
 const AuthStackScreen = () => (
@@ -32,44 +65,28 @@ const AuthStackScreen = () => (
 
 const HomeStack = createStackNavigator();
 const HomeStackScreen = () => (
-  <HomeStack.Navigator
-    screenOptions={{
-      headerShown: false,
-    }}
-  >
+  <HomeStack.Navigator screenOptions={(props) => headerOptions(props)}>
     <HomeStack.Screen name="Home" component={HomeScreen} />
   </HomeStack.Navigator>
 );
 
 const SelfCheckStack = createStackNavigator();
 const SelfCheckStackScreen = () => (
-  <SelfCheckStack.Navigator
-    screenOptions={{
-      headerShown: false,
-    }}
-  >
+  <SelfCheckStack.Navigator screenOptions={(props) => headerOptions(props)}>
     <SelfCheckStack.Screen name="check" component={SelfCheckScreen} />
   </SelfCheckStack.Navigator>
 );
 
 const StatsStack = createStackNavigator();
 const StatsStackScreen = () => (
-  <StatsStack.Navigator
-    screenOptions={{
-      headerShown: false,
-    }}
-  >
+  <StatsStack.Navigator screenOptions={(props) => headerOptions(props)}>
     <StatsStack.Screen name="Stats" component={StatsScreen} />
   </StatsStack.Navigator>
 );
 
 const FullScreenStack = createStackNavigator();
 const FullScreenStackScreen = () => (
-  <FullScreenStack.Navigator
-    screenOptions={{
-      headerShown: false,
-    }}
-  >
+  <FullScreenStack.Navigator>
     <FullScreenStack.Screen name="FullScreen" component={FullScreen} />
   </FullScreenStack.Navigator>
 );
@@ -78,7 +95,14 @@ const AppTabs = createBottomTabNavigator();
 const AppTabsScreen = () => {
   const { t } = React.useContext(LocalizationContext);
   return (
-    <AppTabs.Navigator initialRouteName="Check">
+    <AppTabs.Navigator
+      initialRouteName="Check"
+      tabBarOptions={{
+        activeTintColor: '#007771',
+        inactiveTintColor: 'black',
+        tabStyle: { backgroundColor: '#fdd30e' },
+      }}
+    >
       <AppTabs.Screen
         name="Home"
         component={HomeStackScreen}

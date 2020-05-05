@@ -4,5 +4,6 @@
     "TABS_STATS": "Stats",
     "ACTION_BUTTON_YES": "Yes",
     "ACTION_BUTTON_NO": "No",
-    "ACTION_BUTTON_NOT_SURE": "I'm not sure"
+    "ACTION_BUTTON_NOT_SURE": "I'm not sure",
+    "ACTION_BUTTON_START_OVER": "Start over"
 }

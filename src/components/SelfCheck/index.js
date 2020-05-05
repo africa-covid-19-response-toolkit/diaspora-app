@@ -30,10 +30,6 @@ const SelfCheck = () => {
     loadData();
   }, []);
 
-  const { t, locale, setLocale } = React.useContext(LocalizationContext);
-
-  const [selected, setSelected] = useState(false);
-
   return (
     <View>
       <Questions questions={questions} />

@@ -162,7 +162,7 @@
         }
     },
     "7": {
-        "type": "question",
+        "type": "transfer",
         "text": {
             "eng": "Based on your reported symptoms, you should seek care immediately.",
             "orm": "Based on your reported symptoms, you should seek care immediately.",
