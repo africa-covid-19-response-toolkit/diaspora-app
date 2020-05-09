@@ -3,7 +3,7 @@
         "type": "question",
         "text": {
             "amh": "እድሜዎ 18  ዓመት ወይም ከዚያ  በላይ ነው?",
-            "tir": "እድሜዎ 18  ዓመት ወይም ከዚያ  በላይ ነው?",
+            "tig": "እድሜዎ 18  ዓመት ወይም ከዚያ  በላይ ነው?",
             "eng": "Are you 18 or older?",
             "orm": "እድሜዎ 18  ዓመት ወይም ከዚያ  በላይ ነው?"
         },
@@ -24,7 +24,7 @@
         "type": "close",
         "text": {
             "amh": "Unfortunately, for legal reasons, you must be at least 18 years old to use this assessment tool. Please have an adult help you if you'd like to try again. Goodbye.",
-            "tir": "Unfortunately, for legal reasons, you must be at least 18 years old to use this assessment tool. Please have an adult help you if you'd like to try again. Goodbye.",
+            "tig": "Unfortunately, for legal reasons, you must be at least 18 years old to use this assessment tool. Please have an adult help you if you'd like to try again. Goodbye.",
             "eng": "Unfortunately, for legal reasons, you must be at least 18 years old to use this assessment tool. Please have an adult help you if you'd like to try again. Goodbye.",
             "orm": "Unfortunately, for legal reasons, you must be at least 18 years old to use this assessment tool. Please have an adult help you if you'd like to try again. Goodbye."
         }
