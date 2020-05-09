@@ -25,8 +25,6 @@ const Question = ({ question = {}, onNext }) => {
       return actions[category];
     });
 
-  console.log(question.type);
-
   return (
     <View>
       <Card containerStyle={styles.cardStyle}>
