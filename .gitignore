@@ -65,6 +65,5 @@ buck-out/
 web-build
 
 # Firebase
-GoogleService-Info.plist
-google-services.json
+src/api/firebase/config/*
 .firebase/hosting*
