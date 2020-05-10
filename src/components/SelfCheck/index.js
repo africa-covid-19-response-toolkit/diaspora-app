@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { View } from 'react-native';
-import { LocalizationContext } from '../../context/language';
 
 import { firestore } from '../../api/firebase';
 import Questions from './Questions';

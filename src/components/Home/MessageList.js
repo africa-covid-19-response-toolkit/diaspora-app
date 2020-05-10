@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { firestore } from '../../api/firebase';
-import { LocalizationContext } from '../../context/language';
+
+import { AppContext } from '../../context';
 
 const Message = ({ message }) => {
-  const { locale } = React.useContext(LocalizationContext);
+  const { locale } = React.useContext(AppContext);
 
   return (
     <View style={[styles.slide, { backgroundColor: message.backgroundColor }]}>

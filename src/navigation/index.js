@@ -9,8 +9,9 @@ import { View, Image, Platform } from 'react-native';
 
 // Components
 import Loading from '../components/Loading';
+import SelfCheckScreen from '../screens/SelfCheckScreen';
 
-const TAB_ICON_SIZE = 30;
+import LanguageSelect from '../components/LanguageSelect';
 
 // Screens
 import HomeScreen from '../screens/HomeScreen';
@@ -18,9 +19,16 @@ import StatsScreen from '../screens/StatsScreen';
 import SignInScreen from '../screens/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import FullScreen from '../screens/FullScreen';
-import SelfCheckScreen from '../screens/SelfCheckScreen';
-import { LocalizationContext } from '../context/language';
-import LanguageSelect from '../components/LanguageSelect';
+import Welcome from '../components/Welcome';
+import Instruction from '../components/Welcome/Instruction';
+import Consent from '../components/Welcome/Consent';
+import Location from '../components/Welcome/Location';
+import Age from '../components/Welcome/Age';
+import Sex from '../components/Welcome/Sex';
+import Ethnicity from '../components/Welcome/Ethnicity';
+import { AppContext } from '../context';
+
+const TAB_ICON_SIZE = 30;
 
 const headerOptions = (props) => ({
   headerTitle: null,
@@ -58,6 +66,13 @@ const AuthStackScreen = () => (
       headerShown: false,
     }}
   >
+    <AuthStack.Screen name="Welcome" component={Welcome} />
+    <AuthStack.Screen name="Instruction" component={Instruction} />
+    <AuthStack.Screen name="Consent" component={Consent} />
+    <AuthStack.Screen name="Location" component={Location} />
+    <AuthStack.Screen name="Age" component={Age} />
+    <AuthStack.Screen name="Sex" component={Sex} />
+    <AuthStack.Screen name="Ethnicity" component={Ethnicity} />
     <AuthStack.Screen name="SignIn" component={SignInScreen} />
     <AuthStack.Screen name="SignUp" component={SignUpScreen} />
   </AuthStack.Navigator>
@@ -93,7 +108,7 @@ const FullScreenStackScreen = () => (
 
 const AppTabs = createBottomTabNavigator();
 const AppTabsScreen = () => {
-  const { t } = React.useContext(LocalizationContext);
+  const { t } = React.useContext(AppContext);
   return (
     <AppTabs.Navigator
       initialRouteName="Check"

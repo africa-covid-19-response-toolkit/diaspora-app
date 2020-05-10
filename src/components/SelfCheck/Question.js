@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Card, Button } from 'react-native-elements';
-import { LocalizationContext } from '../../context/language';
+import { AppContext } from '../../context';
 
 const QuestionButton = ({ text, onPress }) => (
   <Button
@@ -14,7 +14,7 @@ const QuestionButton = ({ text, onPress }) => (
 );
 
 const Question = ({ question = {}, onNext }) => {
-  const { locale, t } = React.useContext(LocalizationContext);
+  const { locale, t } = React.useContext(AppContext);
   let actions = question.actions || {};
 
   actions = Object.keys(actions)

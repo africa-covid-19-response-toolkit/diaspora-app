@@ -1,18 +1,19 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, Children } from 'react';
 import {
   StyleSheet,
   Text,
   View,
   Picker,
-  Button,
+  AsyncStorage,
   TouchableOpacity,
   Platform,
 } from 'react-native';
-import { LocalizationContext } from '../context/language';
+
 import Icon from '@expo/vector-icons/FontAwesome5';
 import { find } from 'lodash';
 import Modal from 'react-native-modal';
 import { CheckBox } from 'react-native-elements';
+import { AppContext } from '../context';
 const languages = [
   { name: 'English', locale: 'eng', code: 'EN' },
   { name: 'አማርኛ', locale: 'amh', code: 'አማ' },
@@ -20,11 +21,24 @@ const languages = [
   { name: 'ትግሪኛ', locale: 'tig', code: 'ትግ' },
 ];
 
+const DEFAULT_LOCALE = 'eng';
+
 const LanguageSelect = () => {
+  const { locale, setLocale } = React.useContext(AppContext);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
 
-  const { locale, setLocale } = useContext(LocalizationContext);
+  useEffect(() => {
+    const loadUserLocale = async () => {
+      const userLocale = await AsyncStorage.getItem('locale');
+      if (userLocale) {
+        setLocale(userLocale);
+      } else {
+        setLocale(DEFAULT_LOCALE);
+      }
+    };
+    loadUserLocale();
+  }, []);
 
   useEffect(() => {
     setSelectedValue(locale);
