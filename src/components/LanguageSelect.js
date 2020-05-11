@@ -21,24 +21,12 @@ const languages = [
   { name: 'ትግሪኛ', locale: 'tig', code: 'ትግ' },
 ];
 
-const DEFAULT_LOCALE = 'eng';
+// const DEFAULT_LOCALE = 'eng';
 
 const LanguageSelect = () => {
   const { locale, setLocale } = React.useContext(AppContext);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
-
-  useEffect(() => {
-    const loadUserLocale = async () => {
-      const userLocale = await AsyncStorage.getItem('locale');
-      if (userLocale) {
-        setLocale(userLocale);
-      } else {
-        setLocale(DEFAULT_LOCALE);
-      }
-    };
-    loadUserLocale();
-  }, []);
 
   useEffect(() => {
     setSelectedValue(locale);
@@ -75,8 +63,8 @@ const LanguageSelect = () => {
                     title={`${language.name} (${language.code})`}
                     checked={selectedValue === language.locale}
                     onPress={() => {
-                      setLocale(language.locale);
                       setModalVisible(false);
+                      setLocale(language.locale);
                     }}
                   />
                 </View>

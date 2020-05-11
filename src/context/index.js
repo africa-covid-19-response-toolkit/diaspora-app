@@ -7,17 +7,29 @@ import amh from '../localization/amh/translation.json';
 import orm from '../localization/orm/translation.json';
 import tig from '../localization/tig/translation.json';
 
-i18n.fallbacks = true;
+i18n.fallbacks = 'eng';
 i18n.translations = { eng, amh, orm, tig };
 
 const initialState = {
   locale: '',
+  user: {
+    concent: false,
+    location: {
+      zip: '',
+      coords: {},
+    },
+    gender: null,
+    age: null,
+    ethnicity: null,
+  },
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'LOCALE_CHANGED':
       return { ...state, locale: action.payload };
+    case 'SET_USER_PROFILE':
+      return { ...state, user: { ...state.user, ...action.payload } };
 
     default:
       return initialState;
@@ -30,9 +42,13 @@ export const AppContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   // Actions
-  const setLocale = async (locale) => {
-    await AsyncStorage.setItem('locale', locale);
-    dispatch({ type: 'LOCALE_CHANGED', payload: locale });
+  const actions = {
+    setLocale: async (locale) => {
+      await AsyncStorage.setItem('locale', locale);
+      return dispatch({ type: 'LOCALE_CHANGED', payload: locale });
+    },
+    setUserProfile: (value) =>
+      dispatch({ type: 'SET_USER_PROFILE', payload: value }),
   };
 
   const localizationContext = React.useMemo(
@@ -40,13 +56,14 @@ export const AppContextProvider = ({ children }) => {
       t: (scope, options) =>
         i18n.t(scope, { locale: state.locale, ...options }),
       locale: state.locale,
-      setLocale,
     }),
     [state.locale]
   );
 
   return (
-    <AppContext.Provider value={{ state, dispatch, ...localizationContext }}>
+    <AppContext.Provider
+      value={{ state, dispatch, ...localizationContext, ...actions }}
+    >
       {children}
     </AppContext.Provider>
   );

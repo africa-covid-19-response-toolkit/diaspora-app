@@ -1,9 +1,22 @@
 {
+    "WELCOME_HEADER": "እንኳን በደህና መጡ",
+    "WELCOME_SELECT_LANGUAGE": "ቋንቋ ይምረጡ",
+    "ACTION_BUTTON_CONSENT": "እስማማለሁ",
+    "ACTION_LETS_DO_IT": "እንቀጥል",
+    "ACTION_BUTTON_CONTINUE": "ይቀጥሉ",
+    "ACTION_BUTTON_NEXT": "ቀጣይ",
     "TABS_HOME": "ማርፊያ",
     "TABS_CHECK": "ምርመራ",
     "TABS_STATS": "ሠሌዳ",
     "ACTION_BUTTON_YES": "አዎ",
     "ACTION_BUTTON_NO": "አይ",
     "ACTION_BUTTON_NOT_SURE": "እርግጠኛ አይደለሁም",
-    "ACTION_BUTTON_START_OVER": "እንደና ይጀምሩ"
+    "ACTION_BUTTON_START_OVER": "እንደና ይጀምሩ",
+    "ACTION_BUTTON_MALE": "ወንድ",
+    "ACTION_BUTTON_FEMALE": "ሴት",
+    "TITLE_USER_GENDER": "What\'s your gender?",
+    "TITLE_USER_LOCATION": "የሚኖሩበት አካባቢ የት ነው?",
+    "TITLE_USER_LOCATION_DESCRIPTION": "This helps track the virus\'s spread, and you can learn about what\'s reported nearby",
+    "TITLE_USER_AGE": "ዕድሜዎ ምን ያህል ነው?",
+    "PLACE_HOLDER_ZIP": "ZIP code"
 }

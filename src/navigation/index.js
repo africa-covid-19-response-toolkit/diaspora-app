@@ -1,11 +1,18 @@
 import React from 'react';
+import {
+  View,
+  Image,
+  Platform,
+  Text,
+  TouchableOpacity,
+  AsyncStorage,
+} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { auth } from '../api/firebase';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { View, Image, Platform } from 'react-native';
 
 // Components
 import Loading from '../components/Loading';
@@ -22,16 +29,20 @@ import FullScreen from '../screens/FullScreen';
 import Welcome from '../components/Welcome';
 import Instruction from '../components/Welcome/Instruction';
 import Consent from '../components/Welcome/Consent';
-import Location from '../components/Welcome/Location';
+import UserLocation from '../components/Welcome/UserLocation';
 import Age from '../components/Welcome/Age';
 import Sex from '../components/Welcome/Sex';
 import Ethnicity from '../components/Welcome/Ethnicity';
 import { AppContext } from '../context';
 
-const TAB_ICON_SIZE = 30;
+const DEFAULT_LOCALE = 'eng';
 
 const headerOptions = (props) => ({
-  headerTitle: null,
+  headerTitle: () => (
+    <TouchableOpacity onPress={() => auth().signOut()}>
+      <Text>Temp Sign out REMOVE ME!!!</Text>
+    </TouchableOpacity>
+  ),
   headerStyle: { backgroundColor: '#fdd30e' },
   headerLeft: () => (
     <View
@@ -63,13 +74,16 @@ const AuthStack = createStackNavigator();
 const AuthStackScreen = () => (
   <AuthStack.Navigator
     screenOptions={{
-      headerShown: false,
+      headerTitle: null,
+      headerTransparent: true,
+      headerShown: true,
+      headerStyle: { borderBottomWidth: 0 },
     }}
   >
     <AuthStack.Screen name="Welcome" component={Welcome} />
     <AuthStack.Screen name="Instruction" component={Instruction} />
     <AuthStack.Screen name="Consent" component={Consent} />
-    <AuthStack.Screen name="Location" component={Location} />
+    <AuthStack.Screen name="Location" component={UserLocation} />
     <AuthStack.Screen name="Age" component={Age} />
     <AuthStack.Screen name="Sex" component={Sex} />
     <AuthStack.Screen name="Ethnicity" component={Ethnicity} />
@@ -158,6 +172,7 @@ const AppTabsScreen = () => {
 
 const RootStack = createStackNavigator();
 const RootStackScreen = () => {
+  const { locale, setLocale } = React.useContext(AppContext);
   const [state, setState] = React.useState({ isLoading: true, user: null });
 
   // Handle user state changes
@@ -171,6 +186,15 @@ const RootStackScreen = () => {
   };
 
   React.useEffect(() => {
+    const loadUserLocale = async () => {
+      const userLocale = await AsyncStorage.getItem('locale');
+      if (userLocale) {
+        setLocale(userLocale);
+      } else {
+        setLocale(DEFAULT_LOCALE);
+      }
+    };
+    loadUserLocale();
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber; // unsubscribe on unmount
   }, []);

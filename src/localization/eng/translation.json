@@ -1,9 +1,22 @@
 {
+    "WELCOME_HEADER": "Welcome",
+    "WELCOME_SELECT_LANGUAGE": "Select language",
+    "ACTION_BUTTON_CONSENT": "I consent",
+    "ACTION_LETS_DO_IT": "Let\'s do it",
+    "ACTION_BUTTON_CONTINUE": "Continue",
+    "ACTION_BUTTON_NEXT": "Next",
     "TABS_HOME": "Home",
     "TABS_CHECK": "Check",
     "TABS_STATS": "Stats",
     "ACTION_BUTTON_YES": "Yes",
     "ACTION_BUTTON_NO": "No",
     "ACTION_BUTTON_NOT_SURE": "I'm not sure",
-    "ACTION_BUTTON_START_OVER": "Start over"
+    "ACTION_BUTTON_START_OVER": "Start over",
+    "ACTION_BUTTON_MALE": "Male",
+    "ACTION_BUTTON_FEMALE": "Female",
+    "TITLE_USER_GENDER": "What\'s your gender?",
+    "TITLE_USER_LOCATION": "Where are you currently?",
+    "TITLE_USER_LOCATION_DESCRIPTION": "This helps track the virus\'s spread, and you can learn about what\'s reported nearby",
+    "TITLE_USER_AGE": "How old are you?",
+    "PLACE_HOLDER_ZIP": "ZIP code"
 }
