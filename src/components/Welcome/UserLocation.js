@@ -18,6 +18,7 @@ const LocationButton = ({ onSelect, onError }) => {
     let { status } = await Location.requestPermissionsAsync();
     if (status !== 'granted') {
       onError('Permission to access location was denied');
+      requestPermission();
     }
 
     let location = await Location.getCurrentPositionAsync({});

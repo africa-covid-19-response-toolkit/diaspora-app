@@ -14,9 +14,9 @@
     "ACTION_BUTTON_START_OVER": "እንደና ይጀምሩ",
     "ACTION_BUTTON_MALE": "ወንድ",
     "ACTION_BUTTON_FEMALE": "ሴት",
-    "TITLE_USER_GENDER": "What\'s your gender?",
     "TITLE_USER_LOCATION": "የሚኖሩበት አካባቢ የት ነው?",
-    "TITLE_USER_LOCATION_DESCRIPTION": "This helps track the virus\'s spread, and you can learn about what\'s reported nearby",
+    "TITLE_USER_LOCATION_DESCRIPTION": "This helps track the virus\\'s spread, and you can learn about what\\'s reported nearby",
+    "TITLE_USER_GENDER": "What\\'s is your gender?",
     "TITLE_USER_AGE": "ዕድሜዎ ምን ያህል ነው?",
     "PLACE_HOLDER_ZIP": "ZIP code"
 }

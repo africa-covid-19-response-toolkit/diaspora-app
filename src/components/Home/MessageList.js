@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Swiper from 'react-native-swiper';
+import Swiper from '../../../patch/react-native-swiper';
 import { firestore } from '../../api/firebase';
 
 import { AppContext } from '../../context';
