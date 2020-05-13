@@ -16,7 +16,7 @@ const initialState = {
     concent: false,
     location: {
       zip: '',
-      coords: {},
+      address: {},
     },
     gender: null,
     age: null,

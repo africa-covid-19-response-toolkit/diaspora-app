@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { AppContext } from '../../context';
 
 const Age = ({ navigation }) => {
-  const [age, setAge] = useState(null);
+  const [age, setAge] = useState('');
   const { setUserProfile, t } = React.useContext(AppContext);
   return (
     <View style={styles.container}>
@@ -15,13 +15,28 @@ const Age = ({ navigation }) => {
       <Input
         containerStyle={styles.containerStyle}
         value={age}
-        type="number"
+        maxLength={3}
         inputStyle={styles.inputStyle}
         inputContainerStyle={styles.inputContainerStyle}
         rightIconContainerStyle={styles.rightIconContainerStyle}
-        placeholder="Enter your age...."
-        keyboardType="numeric"
+        placeholder={t('PLACE_HOLDER_AGE')}
+        keyboardType="number-pad"
         onChangeText={(value) => {
+          // Limit characters.
+          if (value.length > 3) {
+            return;
+          }
+
+          // When input is cleared.
+          if (!value) {
+            setAge(value);
+            return;
+          }
+
+          // Ignore non-numeric characters.
+          const regex = /[0-9]/;
+          if (!regex.test(value)) return;
+
           setAge(value);
         }}
       />
@@ -30,7 +45,7 @@ const Age = ({ navigation }) => {
         <Button
           buttonStyle={styles.buttonStyle}
           titleStyle={styles.buttonText}
-          disabled={!age}
+          disabled={age.length < 1 || age.length > 3}
           title={t('ACTION_BUTTON_NEXT')}
           onPress={() => {
             setUserProfile({ age });

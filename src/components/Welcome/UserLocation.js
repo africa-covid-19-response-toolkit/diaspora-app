@@ -10,6 +10,7 @@ import { Input, Button } from 'react-native-elements';
 import Icon from '@expo/vector-icons/FontAwesome5';
 import { get } from 'lodash';
 import * as Location from 'expo-location';
+import ZIPCodes from 'zipcodes';
 
 import { AppContext } from '../../context';
 
@@ -33,7 +34,7 @@ const LocationButton = ({ onSelect, onError }) => {
 };
 
 const UserLocation = ({ navigation }) => {
-  const [userLocation, setUserLocation] = useState({ zip: '', coords: {} });
+  const [userLocation, setUserLocation] = useState({ zip: '', address: {} });
   const { setUserProfile, t } = React.useContext(AppContext);
 
   return (
@@ -46,38 +47,66 @@ const UserLocation = ({ navigation }) => {
       <Input
         containerStyle={styles.containerStyle}
         value={userLocation.zip}
+        maxLength={5}
         inputStyle={styles.inputStyle}
         inputContainerStyle={styles.inputContainerStyle}
+        keyboardType="number-pad"
         rightIconContainerStyle={styles.rightIconContainerStyle}
         placeholder={t('PLACE_HOLDER_ZIP')}
         rightIcon={
           <LocationButton
-            onSelect={async (location) => {
-              const coords = location.coords || {};
+            onSelect={(location) => {
+              try {
+                const coords = location.coords || {};
 
-              if (coords && coords.latitude && coords.longitude) {
-                const address = await Location.reverseGeocodeAsync(coords);
-                if (address && address.length && address[0]) {
+                if (coords && coords.latitude && coords.longitude) {
+                  const address = ZIPCodes.lookupByCoords(
+                    coords.latitude,
+                    coords.longitude
+                  );
+
+                  let zip = get(address, 'zip');
+
                   setUserLocation({
-                    zip: get(address[0], 'postalCode'),
-                    coords,
+                    zip,
+                    address: { ...address, ...coords },
                   });
                 }
+              } catch (error) {
+                console.log(error);
               }
             }}
             onError={(error) => console.log(error)}
           />
         }
-        onChangeText={(value) =>
-          setUserLocation({ ...userLocation, zip: value })
-        }
+        onChangeText={(value) => {
+          // Limit characters.
+          if (value.length > 5) {
+            return;
+          }
+
+          // When input is cleared.
+          if (!value) {
+            setUserLocation({ ...userLocation, zip: value });
+            return;
+          }
+
+          // Ignore non-numeric characters.
+          const regex = /^\d+$/;
+          if (!regex.test(value)) return;
+
+          setUserLocation({
+            zip: value,
+            address: { ...userLocation.address, ...ZIPCodes.lookup(value) },
+          });
+        }}
       />
 
       <View style={styles.buttonWrapper}>
         <Button
           buttonStyle={styles.buttonStyle}
           titleStyle={styles.buttonText}
-          disabled={!userLocation.zip}
+          disabled={userLocation.zip.length < 5 || userLocation.zip.length > 5}
           title={t('ACTION_BUTTON_NEXT')}
           onPress={() => {
             setUserProfile({ location: userLocation });

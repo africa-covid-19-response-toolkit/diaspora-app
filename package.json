@@ -33,7 +33,8 @@
     "react-native-screens": "~2.7.0",
     "react-native-swiper": "^1.6.0",
     "react-native-unimodules": "~0.9.1",
-    "react-native-web": "~0.11.7"
+    "react-native-web": "~0.11.7",
+    "zipcodes": "^8.0.0"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",

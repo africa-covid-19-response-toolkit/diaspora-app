@@ -7,7 +7,10 @@ const Consent = ({ navigation }) => {
   const { setUserProfile, t } = React.useContext(AppContext);
   return (
     <View style={styles.container}>
-      <Text>Consent</Text>
+      <View style={{ marginBottom: 20 }}>
+        <Text style={styles.titleStyle}>{t('TITLE_DISCLAIMER')}</Text>
+        <Text>{t('CONSENT')}</Text>
+      </View>
 
       <View style={styles.buttonWrapper}>
         <Button
@@ -16,7 +19,7 @@ const Consent = ({ navigation }) => {
           title={t('ACTION_BUTTON_CONSENT')}
           onPress={() => {
             setUserProfile({ concent: true });
-            navigation.navigate('Location');
+            navigation.navigate('Instruction');
           }}
         />
       </View>
@@ -27,7 +30,22 @@ const Consent = ({ navigation }) => {
 export default Consent;
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    marginHorizontal: 16,
+  },
+  buttonWrapper: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'stretch',
+  },
+  titleStyle: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
   buttonWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
