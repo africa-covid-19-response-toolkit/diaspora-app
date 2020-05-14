@@ -48,7 +48,7 @@ const MessageList = ({ navigation }) => {
 
   return (
     <View style={{ flex: 1, width }}>
-      <Swiper vertical controlsEnabled={false}>
+      <Swiper vertical controlsProps={{ prevPos: false, nextPos: false }}>
         {messages.map((message, index) => (
           <Message key={index} message={message} />
         ))}
