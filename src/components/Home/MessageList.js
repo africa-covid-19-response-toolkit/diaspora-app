@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import Swiper from '../../../patch/react-native-swiper';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import Swiper from 'react-native-web-swiper';
 import { firestore } from '../../api/firebase';
 
 import { AppContext } from '../../context';
+
+const width = Dimensions.get('screen').width;
 
 const Message = ({ message }) => {
   const { locale } = React.useContext(AppContext);
 
   return (
-    <View style={[styles.slide, { backgroundColor: message.backgroundColor }]}>
+    <View
+      key={message.id}
+      style={[styles.slide, { backgroundColor: message.backgroundColor }]}
+    >
       <Text style={styles.text}>{message.text[locale]}</Text>
     </View>
   );
@@ -38,12 +43,17 @@ const MessageList = ({ navigation }) => {
     console.log(error.message);
   };
 
+  // console.log(messages);
+  if (!messages.length) return null;
+
   return (
-    <Swiper style={styles.wrapper} horizontal={false} showsPagination={false}>
-      {messages.map((message) => (
-        <Message key={message.id} message={message} />
-      ))}
-    </Swiper>
+    <View style={{ flex: 1, width }}>
+      <Swiper vertical controlsEnabled={false}>
+        {messages.map((message, index) => (
+          <Message key={index} message={message} />
+        ))}
+      </Swiper>
+    </View>
   );
 };
 
@@ -62,3 +72,42 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+
+// import React from 'react';
+// import { Text, TouchableOpacity, View } from 'react-native';
+// import Swiper from 'react-native-web-swiper';
+
+// export default class HomeScreen extends React.Component {
+//   render() {
+//     return (
+//       <View style={{ flex: 1 }}>
+//         <View style={{ flex: 1 }}>
+//           <Swiper vertical loop>
+//             <View
+//               key={'asda939k-9494sks-33'}
+//               style={{
+//                 flex: 1,
+//                 alignItems: 'center',
+//                 justifyContent: 'center',
+//                 backgroundColor: 'rgba(20,20,200,0.3)',
+//               }}
+//             >
+//               <Text>Slide 1</Text>
+//             </View>
+//             <View
+//               key={'dddd-9494sks-33'}
+//               style={{
+//                 flex: 1,
+//                 alignItems: 'center',
+//                 justifyContent: 'center',
+//                 backgroundColor: 'rgba(20,20,200,0.3)',
+//               }}
+//             >
+//               <Text>Slide 2</Text>
+//             </View>
+//           </Swiper>
+//         </View>
+//       </View>
+//     );
+//   }
+// }

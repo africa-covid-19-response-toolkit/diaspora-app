@@ -1,10 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import MessageList from './MessageList';
+
+const width = Dimensions.get('screen').width;
 
 const Home = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <MessageList />
     </View>
   );
@@ -12,4 +14,6 @@ const Home = () => {
 
 export default Home;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: { flex: 1 },
+});
