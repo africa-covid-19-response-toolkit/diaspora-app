@@ -31,6 +31,16 @@ const QuestionMultipleChoice = ({ choices = [], valueKey }) => {
     const selection = get(userResponse, valueKey)
       ? get(userResponse, valueKey)
       : [];
+
+    // Check if there is a disable JSON Logic.
+    let disabled = get(choice, 'disabled');
+    if (!isEmpty(disabled) && typeof disabled === 'object') {
+      disabled = jsonLogic.apply(disabled, userResponse);
+    }
+
+    // If choice is disabled, don't display.
+    if (disabled) return null;
+
     return (
       <CheckBox
         key={index}

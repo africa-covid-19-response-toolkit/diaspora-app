@@ -8,8 +8,8 @@ const Questions = ({ questions = {} }) => {
   if (isEmpty(questions)) return null;
 
   const [answers, setAnswers] = useState({});
-  const [currentQuestion, setCurrentQuestion] = useState('1');
-  const [history, setHistory] = useState(['1']);
+  const [currentQuestion, setCurrentQuestion] = useState('13');
+  const [history, setHistory] = useState(['13']);
 
   const gotoPrevious = () => {
     const previous = history[history.indexOf(currentQuestion) - 1];
@@ -70,6 +70,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     paddingTop: 20,
-    height: 70,
+    height: 60,
   },
 });

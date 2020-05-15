@@ -7,6 +7,7 @@
         "orm": "Are you ill, or caring for someone who is ill?",
         "tig": "Are you ill, or caring for someone who is ill?"
       },
+      "value_key": "ill",
       "next": {
         "if": [
           {
@@ -56,6 +57,7 @@
         "orm": "Are you answering for yourself or someone else?",
         "tig": "Are you answering for yourself or someone else?"
       },
+      "value_key": "answering_for",
       "next": "3",
       "actions": {
         "myself": {
@@ -92,6 +94,7 @@
         "orm": "What is your (their) age?",
         "tig": "What is your (their) age?"
       },
+      "value_key": "age_group",
       "next": {
         "if": [
           {
@@ -261,6 +264,7 @@
         "orm": "Are they experiencing any of the following life threatening symptoms?\r\n  \u2022 Not experiencing any life threatening symptoms\r\n  \u2022 Extremely fast or shallow breathing\r\n  \u2022 Blue colored lips or face\r\n  \u2022 Not waking up or not interacting when awake\r\n  \u2022 So irritable that the child does not want to be held\r\n  \u2022 Seizures",
         "tig": "Are they experiencing any of the following life threatening symptoms?\r\n  \u2022 Not experiencing any life threatening symptoms\r\n  \u2022 Extremely fast or shallow breathing\r\n  \u2022 Blue colored lips or face\r\n  \u2022 Not waking up or not interacting when awake\r\n  \u2022 So irritable that the child does not want to be held\r\n  \u2022 Seizures"
       },
+      "value_key": "symptom_4",
       "next": {
         "if": [
           {
@@ -318,6 +322,7 @@
         "orm": "Are you (they) experiencing any of the following life threatening symptoms?\r\n  \u2022 Not experiencing any life threatening symptoms\r\n  \u2022 Blue colored lips or face\r\n  \u2022 Severe and constant pain or pressure in the chest\r\n  \u2022 Severe and constant dizziness or lightheadedness\r\n  \u2022 Acting confused (new or worsening)\r\n  \u2022 Unconscious or very difficult to wake up\r\n  \u2022 Slurred speech (new or worsening)\r\n  \u2022 New seizure or seizures that won won\u2019t stop",
         "tig": "Are you (they) experiencing any of the following life threatening symptoms?\r\n  \u2022 Not experiencing any life threatening symptoms\r\n  \u2022 Blue colored lips or face\r\n  \u2022 Severe and constant pain or pressure in the chest\r\n  \u2022 Severe and constant dizziness or lightheadedness\r\n  \u2022 Acting confused (new or worsening)\r\n  \u2022 Unconscious or very difficult to wake up\r\n  \u2022 Slurred speech (new or worsening)\r\n  \u2022 New seizure or seizures that won won\u2019t stop"
       },
+      "value_key": "symptom_5",
       "next": {
         "if": [
           {
@@ -388,6 +393,7 @@
         "orm": "Do you (they) have any of the following?\r\n  \u2022 Coughing up blood (more than about 1 teaspoon)\r\n  \u2022 Signs of low blood pressure (too weak to stand, light headed, feeling cold, pale, clammy skin)\r\n  \u2022 Ribs are pulling in with each breath (retractions)\r\n  \u2022 Dehydration",
         "tig": "Do you (they) have any of the following?\r\n  \u2022 Coughing up blood (more than about 1 teaspoon)\r\n  \u2022 Signs of low blood pressure (too weak to stand, light headed, feeling cold, pale, clammy skin)\r\n  \u2022 Ribs are pulling in with each breath (retractions)\r\n  \u2022 Dehydration"
       },
+      "value_key": "symptom_6",
       "next": {
         "if": [
           {
@@ -445,6 +451,7 @@
         "orm": "Do you (they) have any of the following?\r\n  \u2022 Coughing up blood (more than about 1 teaspoon)\r\n  \u2022 Signs of low blood pressure (too weak to stand, light headed, feeling cold, pale, clammy skin)",
         "tig": "Do you (they) have any of the following?\r\n  \u2022 Coughing up blood (more than about 1 teaspoon)\r\n  \u2022 Signs of low blood pressure (too weak to stand, light headed, feeling cold, pale, clammy skin)"
       },
+      "value_key": "symptom_7",
       "next": {
         "if": [
           {
@@ -502,6 +509,7 @@
         "orm": "In the two weeks before you (they) felt sick, did you (they):\r\n  \u2022 Have contact with someone diagnosed with COVID 19\r\n  \u2022 Live in or visit a place where COVID 19 is spreading",
         "tig": "In the two weeks before you (they) felt sick, did you (they):\r\n  \u2022 Have contact with someone diagnosed with COVID 19\r\n  \u2022 Live in or visit a place where COVID 19 is spreading"
       },
+      "value_key": "symptom_8",
       "next": {
         "if": [
           {
@@ -559,6 +567,7 @@
         "orm": "Do you (they) have any of the following? (Check any)",
         "tig": "Do you (they) have any of the following? (Check any)"
       },
+      "value_key": "symptom_9",
       "multiple_choice": [
         {
           "text": {
@@ -748,6 +757,281 @@
         }
       }
     },
+    "11": {
+      "type": "question",
+      "text": {
+        "eng": "Do you (they) live in a long-term care facility or nursing home?",
+        "amh": "Do you (they) live in a long-term care facility or nursing home?",
+        "orm": "Do you (they) live in a long-term care facility or nursing home?",
+        "tig": "Do you (they) live in a long-term care facility or nursing home?"
+      },
+      "value_key": "live_long_term_care_facility",
+      "next": {
+        "if": [
+          {
+            "==": [
+              {
+                "var": "live_long_term_care_facility"
+              },
+              "Yes"
+            ]
+          },
+          "msg7",
+          {
+            "in": [
+              {
+                "var": "age_group"
+              },
+              [
+                "19-29 years",
+                "30-39 years",
+                "40-49 years",
+                "50-59 years",
+                "60-64 years",
+                "65-69 years",
+                "70-79 years",
+                "80+"
+              ]
+            ]
+          },
+          "12",
+          "13"
+        ]
+      },
+      "actions": {
+        "yes": {
+          "order": 1,
+          "text": {
+            "eng": "Yes",
+            "amh": "Yes",
+            "orm": "Yes",
+            "tig": "Yes"
+          },
+          "value": {
+            "live_long_term_care_facility": "Yes"
+          }
+        },
+        "no": {
+          "order": 2,
+          "text": {
+            "eng": "No",
+            "amh": "No",
+            "orm": "No",
+            "tig": "No"
+          },
+          "value": {
+            "live_long_term_care_facility": "No"
+          }
+        }
+      }
+    },
+    "12": {
+      "type": "question",
+      "text": {
+        "eng": "In the last two weeks have you (they) worked or volunteered in a hospital, emergency room, clinic, medical office, long-term care facility or nursing home, ambulance service, first responder services, or any healthcare setting, or taken care of patients as a student or part of your work?",
+        "amh": "In the last two weeks have you (they) worked or volunteered in a hospital, emergency room, clinic, medical office, long-term care facility or nursing home, ambulance service, first responder services, or any healthcare setting, or taken care of patients as a student or part of your work?",
+        "orm": "In the last two weeks have you (they) worked or volunteered in a hospital, emergency room, clinic, medical office, long-term care facility or nursing home, ambulance service, first responder services, or any healthcare setting, or taken care of patients as a student or part of your work?",
+        "tig": "In the last two weeks have you (they) worked or volunteered in a hospital, emergency room, clinic, medical office, long-term care facility or nursing home, ambulance service, first responder services, or any healthcare setting, or taken care of patients as a student or part of your work?"
+      },
+      "value_key": "work_medical_facility",
+      "next": {
+        "if": [
+          {
+            "==": [
+              {
+                "var": "work_medical_facility"
+              },
+              "Yes"
+            ]
+          },
+          "msg9_6_t2",
+          "13"
+        ]
+      },
+      "actions": {
+        "yes": {
+          "order": 1,
+          "text": {
+            "eng": "Yes",
+            "amh": "Yes",
+            "orm": "Yes",
+            "tig": "Yes"
+          },
+          "value": {
+            "work_medical_facility": "Yes"
+          }
+        },
+        "no": {
+          "order": 2,
+          "text": {
+            "eng": "No",
+            "amh": "No",
+            "orm": "No",
+            "tig": "No"
+          },
+          "value": {
+            "work_medical_facility": "No"
+          }
+        }
+      }
+    },
+    "13": {
+      "type": "question",
+      "text": {
+        "eng": "Do you have any of the following conditions (check any)",
+        "amh": "Do you have any of the following conditions (check any)",
+        "orm": "Do you have any of the following conditions (check any)",
+        "tig": "Do you have any of the following conditions (check any)"
+      },
+      "value_key": "conditions",
+      "multiple_choice": [
+        {
+          "text": {
+            "eng": "Chronic lung disease, moderate to severe asthma, or smoking",
+            "amh": "Chronic lung disease, moderate to severe asthma, or smoking",
+            "orm": "Chronic lung disease, moderate to severe asthma, or smoking",
+            "tig": "Chronic lung disease, moderate to severe asthma, or smoking"
+          },
+          "value": {
+            "conditions": "Chronic lung disease, moderate to severe asthma, or smoking"
+          }
+        },
+        {
+          "text": {
+            "eng": "Serious heart conditions",
+            "amh": "Serious heart conditions",
+            "orm": "Serious heart conditions",
+            "tig": "Serious heart conditions"
+          },
+          "value": {
+            "conditions": "Serious heart conditions"
+          }
+        },
+        {
+          "text": {
+            "eng": "Weakened immune system (cancer treatment, prolonged use of steroids, transplant, or HIV\/AIDS)",
+            "amh": "Weakened immune system (cancer treatment, prolonged use of steroids, transplant, or HIV\/AIDS)",
+            "orm": "Weakened immune system (cancer treatment, prolonged use of steroids, transplant, or HIV\/AIDS)",
+            "tig": "Weakened immune system (cancer treatment, prolonged use of steroids, transplant, or HIV\/AIDS)"
+          },
+          "value": {
+            "conditions": "Weakened immune system (cancer treatment, prolonged use of steroids, transplant, or HIV\/AIDS)"
+          }
+        },
+        {
+          "text": {
+            "eng": "Severe obesity (Body Mass Index [BMI] > 40)",
+            "amh": "Severe obesity (Body Mass Index [BMI] > 40)",
+            "orm": "Severe obesity (Body Mass Index [BMI] > 40)",
+            "tig": "Severe obesity (Body Mass Index [BMI] > 40)"
+          },
+          "value": {
+            "conditions": "Severe obesity (Body Mass Index [BMI] > 40)"
+          }
+        },
+        {
+          "text": {
+            "eng": "Underlying conditions (diabetes, renal failure, or liver disease)",
+            "amh": "Underlying conditions (diabetes, renal failure, or liver disease)",
+            "orm": "Underlying conditions (diabetes, renal failure, or liver disease)",
+            "tig": "Underlying conditions (diabetes, renal failure, or liver disease)"
+          },
+          "value": {
+            "conditions": "Underlying conditions (diabetes, renal failure, or liver disease)"
+          }
+        },
+        {
+          "text": {
+            "eng": "Pregnancy",
+            "amh": "Pregnancy",
+            "orm": "Pregnancy",
+            "tig": "Pregnancy"
+          },
+          "value": {
+            "conditions": "Pregnancy"
+          },
+          "disabled": {
+            "if": [
+              {
+                "==": [
+                  {
+                    "var": "gender"
+                  },
+                  "Male"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "text": {
+            "eng": "None of the above",
+            "amh": "None of the above",
+            "orm": "None of the above",
+            "tig": "None of the above"
+          },
+          "value": {
+            "conditions": "None of the above"
+          }
+        }
+      ],
+      "next": {
+        "if": [
+          {
+            "some": [
+              {
+                "var": "conditions"
+              },
+              {
+                "in": [
+                  {
+                    "var": ""
+                  },
+                  [
+                    "Chronic lung disease, moderate to severe asthma, or smoking",
+                    "Serious heart conditions",
+                    "Weakened immune system (cancer treatment, prolonged use of steroids, transplant, or HIV\/AIDS)",
+                    "Severe obesity (Body Mass Index [BMI] > 40)",
+                    "Underlying conditions (diabetes, renal failure, or liver disease)",
+                    "Pregnancy"
+                  ]
+                ]
+              }
+            ]
+          },
+          "msg5_t2",
+          {
+            "if": [
+              {
+                "in": [
+                  {
+                    "var": "age_group"
+                  },
+                  [
+                    "65-69 years",
+                    "70-79 years",
+                    "80+"
+                  ]
+                ]
+              },
+              "msg9_t2",
+              "msg8"
+            ]
+          }
+        ]
+      },
+      "actions": {
+        "next": {
+          "order": 1,
+          "text": {
+            "eng": "Next",
+            "amh": "Next",
+            "orm": "Next",
+            "tig": "Next"
+          }
+        }
+      }
+    },
     "28": {
       "type": "question",
       "text": {
@@ -756,6 +1040,7 @@
         "orm": "What is your (their) gender?",
         "tig": "What is your (their) gender?"
       },
+      "value_key": "gender",
       "next": "5",
       "actions": {
         "male": {
@@ -792,6 +1077,7 @@
         "orm": "How is your (their) breathing? Which of these are you (they) experiencing?\r\n  \u2022 Severe gasping for air or cannot talk without catching your breath\r\n  \u2022 Mild: you can get enough air in your lungs but your chest feels tight when you take a deep breath",
         "tig": "How is your (their) breathing? Which of these are you (they) experiencing?\r\n  \u2022 Severe gasping for air or cannot talk without catching your breath\r\n  \u2022 Mild: you can get enough air in your lungs but your chest feels tight when you take a deep breath"
       },
+      "value_key": "symptom_30",
       "next": {
         "if": [
           {
@@ -853,6 +1139,7 @@
         "orm": "Are you answering for yourself or someone else?",
         "tig": "Are you answering for yourself or someone else?"
       },
+      "value_key": "answering_for",
       "next": {
         "if": [
           {
@@ -910,6 +1197,78 @@
         "amh": "Urgent medical attention may be needed. Please call 911 or go to the Emergency Department.",
         "orm": "Urgent medical attention may be needed. Please call 911 or go to the Emergency Department.",
         "tig": "Urgent medical attention may be needed. Please call 911 or go to the Emergency Department."
+      }
+    },
+    "msg5": {
+      "type": "message",
+      "text": {
+        "eng": "Sorry you you\u2019re feeling ill. You have some symptoms that may be related to COVID 19. You also have\r\nmedical conditions that may increase your risk of some infections or complications from COVID 19. Call\r\nyour healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home\r\nisolation. This means stay home except to get medical care, and do not go to work, school, or public\r\nareas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse.\r\nRead important information about caring for yourself or someone else who is sick and follow these steps\r\nto help protect others from getting sick .",
+        "amh": "Sorry you you\u2019re feeling ill. You have some symptoms that may be related to COVID 19. You also have\r\nmedical conditions that may increase your risk of some infections or complications from COVID 19. Call\r\nyour healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home\r\nisolation. This means stay home except to get medical care, and do not go to work, school, or public\r\nareas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse.\r\nRead important information about caring for yourself or someone else who is sick and follow these steps\r\nto help protect others from getting sick .",
+        "orm": "Sorry you you\u2019re feeling ill. You have some symptoms that may be related to COVID 19. You also have\r\nmedical conditions that may increase your risk of some infections or complications from COVID 19. Call\r\nyour healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home\r\nisolation. This means stay home except to get medical care, and do not go to work, school, or public\r\nareas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse.\r\nRead important information about caring for yourself or someone else who is sick and follow these steps\r\nto help protect others from getting sick .",
+        "tig": "Sorry you you\u2019re feeling ill. You have some symptoms that may be related to COVID 19. You also have\r\nmedical conditions that may increase your risk of some infections or complications from COVID 19. Call\r\nyour healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home\r\nisolation. This means stay home except to get medical care, and do not go to work, school, or public\r\nareas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse.\r\nRead important information about caring for yourself or someone else who is sick and follow these steps\r\nto help protect others from getting sick ."
+      }
+    },
+    "msg5_t2": {
+      "type": "message",
+      "text": {
+        "eng": "Sorry you you\u2019re feeling ill. You have some symptoms that may be related to COVID 19. You also have medical conditions that may increase your risk of some infections or complications from COVID 19. Call your healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home isolation. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse. Read important information about caring for yourself or someone else who is sick and follow these steps to help protect others from getting sick.\r\n\r\nTalk to your provider about COVID 19 testing.",
+        "amh": "Sorry you you\u2019re feeling ill. You have some symptoms that may be related to COVID 19. You also have medical conditions that may increase your risk of some infections or complications from COVID 19. Call your healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home isolation. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse. Read important information about caring for yourself or someone else who is sick and follow these steps to help protect others from getting sick.\r\n\r\nTalk to your provider about COVID 19 testing.",
+        "orm": "Sorry you you\u2019re feeling ill. You have some symptoms that may be related to COVID 19. You also have medical conditions that may increase your risk of some infections or complications from COVID 19. Call your healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home isolation. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse. Read important information about caring for yourself or someone else who is sick and follow these steps to help protect others from getting sick.\r\n\r\nTalk to your provider about COVID 19 testing.",
+        "tig": "Sorry you you\u2019re feeling ill. You have some symptoms that may be related to COVID 19. You also have medical conditions that may increase your risk of some infections or complications from COVID 19. Call your healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home isolation. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse. Read important information about caring for yourself or someone else who is sick and follow these steps to help protect others from getting sick.\r\n\r\nTalk to your provider about COVID 19 testing."
+      }
+    },
+    "msg6": {
+      "type": "message",
+      "text": {
+        "eng": "Please contact the occupational health provider (or supervisor) in your healthcare facility as soon as possible and let them know you you’re feeling ill.",
+        "amh": "Please contact the occupational health provider (or supervisor) in your healthcare facility as soon as possible and let them know you you’re feeling ill.",
+        "orm": "Please contact the occupational health provider (or supervisor) in your healthcare facility as soon as possible and let them know you you’re feeling ill.",
+        "tig": "Please contact the occupational health provider (or supervisor) in your healthcare facility as soon as possible and let them know you you’re feeling ill."
+      }
+    },
+    "msg7": {
+      "type": "message",
+      "text": {
+        "eng": "Living in a long term care facility or nursing home may put you at a higher risk for severe illness. Tell a caregiver at the facility that you are sick and need to see a medical provider as soon as possible.",
+        "amh": "Living in a long term care facility or nursing home may put you at a higher risk for severe illness. Tell a caregiver at the facility that you are sick and need to see a medical provider as soon as possible.",
+        "orm": "Living in a long term care facility or nursing home may put you at a higher risk for severe illness. Tell a caregiver at the facility that you are sick and need to see a medical provider as soon as possible.",
+        "tig": "Living in a long term care facility or nursing home may put you at a higher risk for severe illness. Tell a caregiver at the facility that you are sick and need to see a medical provider as soon as possible."
+      }
+    },
+    "msg8": {
+      "type": "message",
+      "text": {
+        "eng": "Sorry you you\u2019re feeling ill. You have one or more symptom(s) that may be related to COVID 19. Stay home and take care of yourself. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse or you think it is an emergency.\r\n\r\nRead important information about caring for yourself or someone else who is sick and follow these steps to help protect others from getting sick.",
+        "amh": "Sorry you you\u2019re feeling ill. You have one or more symptom(s) that may be related to COVID 19. Stay home and take care of yourself. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse or you think it is an emergency.\r\n\r\nRead important information about caring for yourself or someone else who is sick and follow these steps to help protect others from getting sick.",
+        "orm": "Sorry you you\u2019re feeling ill. You have one or more symptom(s) that may be related to COVID 19. Stay home and take care of yourself. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse or you think it is an emergency.\r\n\r\nRead important information about caring for yourself or someone else who is sick and follow these steps to help protect others from getting sick.",
+        "tig": "Sorry you you\u2019re feeling ill. You have one or more symptom(s) that may be related to COVID 19. Stay home and take care of yourself. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse or you think it is an emergency.\r\n\r\nRead important information about caring for yourself or someone else who is sick and follow these steps to help protect others from getting sick."
+      }
+    },
+    "msg9": {
+      "type": "message",
+      "text": {
+        "eng": "Sorry you you’re feeling ill. You have one or more symptom(s) that may be related to COVID 19. Stay home and take care of yourself. Call your healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home isolation. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse or you think it is an emergency.",
+        "amh": "Sorry you you’re feeling ill. You have one or more symptom(s) that may be related to COVID 19. Stay home and take care of yourself. Call your healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home isolation. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse or you think it is an emergency.",
+        "orm": "Sorry you you’re feeling ill. You have one or more symptom(s) that may be related to COVID 19. Stay home and take care of yourself. Call your healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home isolation. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse or you think it is an emergency.",
+        "tig": "Sorry you you’re feeling ill. You have one or more symptom(s) that may be related to COVID 19. Stay home and take care of yourself. Call your healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home isolation. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse or you think it is an emergency."
+      }
+    },
+    "msg9_t2": {
+      "type": "message",
+      "text": {
+        "eng": "Sorry you you\u2019re feeling ill. You have one or more symptom(s) that may be related to COVID 19. Stay home and take care of yourself. Call your healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home isolation. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse or you think it is an emergency.\r\n\r\nTalk to your provider about COVID 19 testing.",
+        "amh": "Sorry you you\u2019re feeling ill. You have one or more symptom(s) that may be related to COVID 19. Stay home and take care of yourself. Call your healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home isolation. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse or you think it is an emergency.\r\n\r\nTalk to your provider about COVID 19 testing.",
+        "orm": "Sorry you you\u2019re feeling ill. You have one or more symptom(s) that may be related to COVID 19. Stay home and take care of yourself. Call your healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home isolation. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse or you think it is an emergency.\r\n\r\nTalk to your provider about COVID 19 testing.",
+        "tig": "Sorry you you\u2019re feeling ill. You have one or more symptom(s) that may be related to COVID 19. Stay home and take care of yourself. Call your healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home isolation. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse or you think it is an emergency.\r\n\r\nTalk to your provider about COVID 19 testing."
+      }
+    },
+    "msg9_6_t2": {
+      "type": "message",
+      "text": {
+        "eng": "Sorry you you\u2019re feeling ill. You have one or more symptom(s) that may be related to COVID 19. Stay home and take care of yourself. Call your healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home isolation. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse or you think it is an emergency.\r\n\r\nPlease contact the occupational health provider (or supervisor) in your healthcare facility as soon as possible and let them know you you\u2019re feeling ill.\r\n\r\nTalk to your provider about COVID 19 testing.",
+        "amh": "Sorry you you\u2019re feeling ill. You have one or more symptom(s) that may be related to COVID 19. Stay home and take care of yourself. Call your healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home isolation. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse or you think it is an emergency.\r\n\r\nPlease contact the occupational health provider (or supervisor) in your healthcare facility as soon as possible and let them know you you\u2019re feeling ill.\r\n\r\nTalk to your provider about COVID 19 testing.",
+        "orm": "Sorry you you\u2019re feeling ill. You have one or more symptom(s) that may be related to COVID 19. Stay home and take care of yourself. Call your healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home isolation. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse or you think it is an emergency.\r\n\r\nPlease contact the occupational health provider (or supervisor) in your healthcare facility as soon as possible and let them know you you\u2019re feeling ill.\r\n\r\nTalk to your provider about COVID 19 testing.",
+        "tig": "Sorry you you\u2019re feeling ill. You have one or more symptom(s) that may be related to COVID 19. Stay home and take care of yourself. Call your healthcare provider, clinician advice line, or telemedicine provider within 24 hours. Start home isolation. This means stay home except to get medical care, and do not go to work, school, or public areas. Do not use public transportation or ride sharing. Be sure to get care if you feel worse or you think it is an emergency.\r\n\r\nPlease contact the occupational health provider (or supervisor) in your healthcare facility as soon as possible and let them know you you\u2019re feeling ill.\r\n\r\nTalk to your provider about COVID 19 testing."
       }
     },
     "msg10": {
