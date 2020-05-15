@@ -21,6 +21,7 @@
     "expo-updates": "~0.1.2",
     "firebase": "7.9.0",
     "i18n-js": "^3.5.1",
+    "json-logic-js": "^1.2.2",
     "lodash": "^4.17.15",
     "react": "16.9.0",
     "react-dom": "16.9.0",

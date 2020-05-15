@@ -1,0 +1,924 @@
+{
+    "1": {
+      "type": "question",
+      "text": {
+        "eng": "Are you ill, or caring for someone who is ill?",
+        "amh": "Are you ill, or caring for someone who is ill?",
+        "orm": "Are you ill, or caring for someone who is ill?",
+        "tig": "Are you ill, or caring for someone who is ill?"
+      },
+      "next": {
+        "if": [
+          {
+            "==": [
+              {
+                "var": "ill"
+              },
+              "Yes"
+            ]
+          },
+          "2",
+          "34"
+        ]
+      },
+      "actions": {
+        "yes": {
+          "order": 1,
+          "text": {
+            "eng": "Yes",
+            "amh": "Yes",
+            "orm": "Yes",
+            "tig": "Yes"
+          },
+          "value": {
+            "ill": "Yes"
+          }
+        },
+        "no": {
+          "order": 2,
+          "text": {
+            "eng": "No",
+            "amh": "No",
+            "orm": "No",
+            "tig": "No"
+          },
+          "value": {
+            "ill": "No"
+          }
+        }
+      }
+    },
+    "2": {
+      "type": "question",
+      "text": {
+        "eng": "Are you answering for yourself or someone else?",
+        "amh": "Are you answering for yourself or someone else?",
+        "orm": "Are you answering for yourself or someone else?",
+        "tig": "Are you answering for yourself or someone else?"
+      },
+      "next": "3",
+      "actions": {
+        "myself": {
+          "order": 1,
+          "text": {
+            "eng": "Myself",
+            "amh": "Myself",
+            "orm": "Myself",
+            "tig": "Myself"
+          },
+          "value": {
+            "answering_for": "Myself"
+          }
+        },
+        "someone_else": {
+          "order": 2,
+          "text": {
+            "eng": "Someone else",
+            "amh": "Someone else",
+            "orm": "Someone else",
+            "tig": "Someone else"
+          },
+          "value": {
+            "answering_for": "Someone else"
+          }
+        }
+      }
+    },
+    "3": {
+      "type": "question",
+      "text": {
+        "eng": "What is your (their) age?",
+        "amh": "What is your (their) age?",
+        "orm": "What is your (their) age?",
+        "tig": "What is your (their) age?"
+      },
+      "next": {
+        "if": [
+          {
+            "==": [
+              {
+                "var": "age_group"
+              },
+              "Younger than 2 years old"
+            ]
+          },
+          "4",
+          "28"
+        ]
+      },
+      "actions": {
+        "younger_than_2_years_old": {
+          "order": 1,
+          "text": {
+            "eng": "Younger than 2 years old",
+            "amh": "Younger than 2 years old",
+            "orm": "Younger than 2 years old",
+            "tig": "Younger than 2 years old"
+          },
+          "value": {
+            "age_group": "Younger than 2 years old"
+          }
+        },
+        "2_4_years": {
+          "order": 2,
+          "text": {
+            "eng": "2-4 years",
+            "amh": "2-4 years",
+            "orm": "2-4 years",
+            "tig": "2-4 years"
+          },
+          "value": {
+            "age_group": "2-4 years"
+          }
+        },
+        "5_9_years": {
+          "order": 3,
+          "text": {
+            "eng": "5-9 years",
+            "amh": "5-9 years",
+            "orm": "5-9 years",
+            "tig": "5-9 years"
+          },
+          "value": {
+            "age_group": "5-9 years"
+          }
+        },
+        "10_18_years": {
+          "order": 4,
+          "text": {
+            "eng": "10-18 years",
+            "amh": "10-18 years",
+            "orm": "10-18 years",
+            "tig": "10-18 years"
+          },
+          "value": {
+            "age_group": "10-18 years"
+          }
+        },
+        "19_29_years": {
+          "order": 4,
+          "text": {
+            "eng": "19-29 years",
+            "amh": "19-29 years",
+            "orm": "19-29 years",
+            "tig": "19-29 years"
+          },
+          "value": {
+            "age_group": "19-29 years"
+          }
+        },
+        "30_39_years": {
+          "order": 5,
+          "text": {
+            "eng": "30-39 years",
+            "amh": "30-39 years",
+            "orm": "30-39 years",
+            "tig": "30-39 years"
+          },
+          "value": {
+            "age_group": "30-39 years"
+          }
+        },
+        "40_49_years": {
+          "order": 6,
+          "text": {
+            "eng": "40-49 years",
+            "amh": "40-49 years",
+            "orm": "40-49 years",
+            "tig": "40-49 years"
+          },
+          "value": {
+            "age_group": "40-49 years"
+          }
+        },
+        "50_59_years": {
+          "order": 7,
+          "text": {
+            "eng": "50-59 years",
+            "amh": "50-59 years",
+            "orm": "50-59 years",
+            "tig": "50-59 years"
+          },
+          "value": {
+            "age_group": "50-59 years"
+          }
+        },
+        "60_64_years": {
+          "order": 8,
+          "text": {
+            "eng": "60-64 years",
+            "amh": "60-64 years",
+            "orm": "60-64 years",
+            "tig": "60-64 years"
+          },
+          "value": {
+            "age_group": "60-64 years"
+          }
+        },
+        "65_69_years": {
+          "order": 9,
+          "text": {
+            "eng": "65-69 years",
+            "amh": "65-69 years",
+            "orm": "65-69 years",
+            "tig": "65-69 years"
+          },
+          "value": {
+            "age_group": "65-69 years"
+          }
+        },
+        "70_79_years": {
+          "order": 10,
+          "text": {
+            "eng": "70-79 years",
+            "amh": "70-79 years",
+            "orm": "70-79 years",
+            "tig": "70-79 years"
+          },
+          "value": {
+            "age_group": "70-79 years"
+          }
+        },
+        "80_": {
+          "order": 11,
+          "text": {
+            "eng": "80+",
+            "amh": "80+",
+            "orm": "80+",
+            "tig": "80+"
+          },
+          "value": {
+            "age_group": "80+"
+          }
+        }
+      }
+    },
+    "4": {
+      "type": "question",
+      "text": {
+        "eng": "Are they experiencing any of the following life threatening symptoms?\r\n  \u2022 Not experiencing any life threatening symptoms\r\n  \u2022 Extremely fast or shallow breathing\r\n  \u2022 Blue colored lips or face\r\n  \u2022 Not waking up or not interacting when awake\r\n  \u2022 So irritable that the child does not want to be held\r\n  \u2022 Seizures",
+        "amh": "Are they experiencing any of the following life threatening symptoms?\r\n  \u2022 Not experiencing any life threatening symptoms\r\n  \u2022 Extremely fast or shallow breathing\r\n  \u2022 Blue colored lips or face\r\n  \u2022 Not waking up or not interacting when awake\r\n  \u2022 So irritable that the child does not want to be held\r\n  \u2022 Seizures",
+        "orm": "Are they experiencing any of the following life threatening symptoms?\r\n  \u2022 Not experiencing any life threatening symptoms\r\n  \u2022 Extremely fast or shallow breathing\r\n  \u2022 Blue colored lips or face\r\n  \u2022 Not waking up or not interacting when awake\r\n  \u2022 So irritable that the child does not want to be held\r\n  \u2022 Seizures",
+        "tig": "Are they experiencing any of the following life threatening symptoms?\r\n  \u2022 Not experiencing any life threatening symptoms\r\n  \u2022 Extremely fast or shallow breathing\r\n  \u2022 Blue colored lips or face\r\n  \u2022 Not waking up or not interacting when awake\r\n  \u2022 So irritable that the child does not want to be held\r\n  \u2022 Seizures"
+      },
+      "next": {
+        "if": [
+          {
+            "==": [
+              {
+                "var": "symptom_4"
+              },
+              "Yes"
+            ]
+          },
+          "msg4",
+          {
+            "==": [
+              {
+                "var": "symptom_4"
+              },
+              "No"
+            ]
+          },
+          "msg3"
+        ]
+      },
+      "actions": {
+        "yes": {
+          "order": 1,
+          "text": {
+            "eng": "Yes",
+            "amh": "Yes",
+            "orm": "Yes",
+            "tig": "Yes"
+          },
+          "value": {
+            "symptom_4": "Yes"
+          }
+        },
+        "no": {
+          "order": 2,
+          "text": {
+            "eng": "No",
+            "amh": "No",
+            "orm": "No",
+            "tig": "No"
+          },
+          "value": {
+            "symptom_4": "No"
+          }
+        }
+      }
+    },
+    "5": {
+      "type": "question",
+      "text": {
+        "eng": "Are you (they) experiencing any of the following life threatening symptoms?\r\n  \u2022 Not experiencing any life threatening symptoms\r\n  \u2022 Blue colored lips or face\r\n  \u2022 Severe and constant pain or pressure in the chest\r\n  \u2022 Severe and constant dizziness or lightheadedness\r\n  \u2022 Acting confused (new or worsening)\r\n  \u2022 Unconscious or very difficult to wake up\r\n  \u2022 Slurred speech (new or worsening)\r\n  \u2022 New seizure or seizures that won won\u2019t stop",
+        "amh": "Are you (they) experiencing any of the following life threatening symptoms?\r\n  \u2022 Not experiencing any life threatening symptoms\r\n  \u2022 Blue colored lips or face\r\n  \u2022 Severe and constant pain or pressure in the chest\r\n  \u2022 Severe and constant dizziness or lightheadedness\r\n  \u2022 Acting confused (new or worsening)\r\n  \u2022 Unconscious or very difficult to wake up\r\n  \u2022 Slurred speech (new or worsening)\r\n  \u2022 New seizure or seizures that won won\u2019t stop",
+        "orm": "Are you (they) experiencing any of the following life threatening symptoms?\r\n  \u2022 Not experiencing any life threatening symptoms\r\n  \u2022 Blue colored lips or face\r\n  \u2022 Severe and constant pain or pressure in the chest\r\n  \u2022 Severe and constant dizziness or lightheadedness\r\n  \u2022 Acting confused (new or worsening)\r\n  \u2022 Unconscious or very difficult to wake up\r\n  \u2022 Slurred speech (new or worsening)\r\n  \u2022 New seizure or seizures that won won\u2019t stop",
+        "tig": "Are you (they) experiencing any of the following life threatening symptoms?\r\n  \u2022 Not experiencing any life threatening symptoms\r\n  \u2022 Blue colored lips or face\r\n  \u2022 Severe and constant pain or pressure in the chest\r\n  \u2022 Severe and constant dizziness or lightheadedness\r\n  \u2022 Acting confused (new or worsening)\r\n  \u2022 Unconscious or very difficult to wake up\r\n  \u2022 Slurred speech (new or worsening)\r\n  \u2022 New seizure or seizures that won won\u2019t stop"
+      },
+      "next": {
+        "if": [
+          {
+            "==": [
+              {
+                "var": "symptom_5"
+              },
+              "Yes"
+            ]
+          },
+          "msg4",
+          {
+            "==": [
+              {
+                "var": "symptom_5"
+              },
+              "None of the above"
+            ]
+          },
+          {
+            "if": [
+              {
+                "==": [
+                  {
+                    "var": "age_group"
+                  },
+                  "Younger than 2 years old"
+                ]
+              },
+              "6",
+              "7"
+            ]
+          }
+        ]
+      },
+      "actions": {
+        "yes": {
+          "order": 1,
+          "text": {
+            "eng": "Yes",
+            "amh": "Yes",
+            "orm": "Yes",
+            "tig": "Yes"
+          },
+          "value": {
+            "symptom_5": "Yes"
+          }
+        },
+        "no_of_the_above": {
+          "order": 2,
+          "text": {
+            "eng": "None of the above",
+            "amh": "None of the above",
+            "orm": "None of the above",
+            "tig": "None of the above"
+          },
+          "value": {
+            "symptom_5": "None of the above"
+          }
+        }
+      }
+    },
+    "6": {
+      "type": "question",
+      "text": {
+        "eng": "Do you (they) have any of the following?\r\n  \u2022 Coughing up blood (more than about 1 teaspoon)\r\n  \u2022 Signs of low blood pressure (too weak to stand, light headed, feeling cold, pale, clammy skin)\r\n  \u2022 Ribs are pulling in with each breath (retractions)\r\n  \u2022 Dehydration",
+        "amh": "Do you (they) have any of the following?\r\n  \u2022 Coughing up blood (more than about 1 teaspoon)\r\n  \u2022 Signs of low blood pressure (too weak to stand, light headed, feeling cold, pale, clammy skin)\r\n  \u2022 Ribs are pulling in with each breath (retractions)\r\n  \u2022 Dehydration",
+        "orm": "Do you (they) have any of the following?\r\n  \u2022 Coughing up blood (more than about 1 teaspoon)\r\n  \u2022 Signs of low blood pressure (too weak to stand, light headed, feeling cold, pale, clammy skin)\r\n  \u2022 Ribs are pulling in with each breath (retractions)\r\n  \u2022 Dehydration",
+        "tig": "Do you (they) have any of the following?\r\n  \u2022 Coughing up blood (more than about 1 teaspoon)\r\n  \u2022 Signs of low blood pressure (too weak to stand, light headed, feeling cold, pale, clammy skin)\r\n  \u2022 Ribs are pulling in with each breath (retractions)\r\n  \u2022 Dehydration"
+      },
+      "next": {
+        "if": [
+          {
+            "==": [
+              {
+                "var": "symptom_6"
+              },
+              "Yes"
+            ]
+          },
+          "msg4",
+          {
+            "==": [
+              {
+                "var": "symptom_6"
+              },
+              "None of the above"
+            ]
+          },
+          "30"
+        ]
+      },
+      "actions": {
+        "yes": {
+          "order": 1,
+          "text": {
+            "eng": "Yes",
+            "amh": "Yes",
+            "orm": "Yes",
+            "tig": "Yes"
+          },
+          "value": {
+            "symptom_6": "Yes"
+          }
+        },
+        "no_of_the_above": {
+          "order": 2,
+          "text": {
+            "eng": "None of the above",
+            "amh": "None of the above",
+            "orm": "None of the above",
+            "tig": "None of the above"
+          },
+          "value": {
+            "symptom_6": "None of the above"
+          }
+        }
+      }
+    },
+    "7": {
+      "type": "question",
+      "text": {
+        "eng": "Do you (they) have any of the following?\r\n  \u2022 Coughing up blood (more than about 1 teaspoon)\r\n  \u2022 Signs of low blood pressure (too weak to stand, light headed, feeling cold, pale, clammy skin)",
+        "amh": "Do you (they) have any of the following?\r\n  \u2022 Coughing up blood (more than about 1 teaspoon)\r\n  \u2022 Signs of low blood pressure (too weak to stand, light headed, feeling cold, pale, clammy skin)",
+        "orm": "Do you (they) have any of the following?\r\n  \u2022 Coughing up blood (more than about 1 teaspoon)\r\n  \u2022 Signs of low blood pressure (too weak to stand, light headed, feeling cold, pale, clammy skin)",
+        "tig": "Do you (they) have any of the following?\r\n  \u2022 Coughing up blood (more than about 1 teaspoon)\r\n  \u2022 Signs of low blood pressure (too weak to stand, light headed, feeling cold, pale, clammy skin)"
+      },
+      "next": {
+        "if": [
+          {
+            "==": [
+              {
+                "var": "symptom_7"
+              },
+              "Yes"
+            ]
+          },
+          "msg4",
+          {
+            "==": [
+              {
+                "var": "symptom_7"
+              },
+              "None of the above"
+            ]
+          },
+          "30"
+        ]
+      },
+      "actions": {
+        "yes": {
+          "order": 1,
+          "text": {
+            "eng": "Yes",
+            "amh": "Yes",
+            "orm": "Yes",
+            "tig": "Yes"
+          },
+          "value": {
+            "symptom_7": "Yes"
+          }
+        },
+        "no_of_the_above": {
+          "order": 2,
+          "text": {
+            "eng": "None of the above",
+            "amh": "None of the above",
+            "orm": "None of the above",
+            "tig": "None of the above"
+          },
+          "value": {
+            "symptom_7": "None of the above"
+          }
+        }
+      }
+    },
+    "8": {
+      "type": "question",
+      "text": {
+        "eng": "In the two weeks before you (they) felt sick, did you (they):\r\n  \u2022 Have contact with someone diagnosed with COVID 19\r\n  \u2022 Live in or visit a place where COVID 19 is spreading",
+        "amh": "In the two weeks before you (they) felt sick, did you (they):\r\n  \u2022 Have contact with someone diagnosed with COVID 19\r\n  \u2022 Live in or visit a place where COVID 19 is spreading",
+        "orm": "In the two weeks before you (they) felt sick, did you (they):\r\n  \u2022 Have contact with someone diagnosed with COVID 19\r\n  \u2022 Live in or visit a place where COVID 19 is spreading",
+        "tig": "In the two weeks before you (they) felt sick, did you (they):\r\n  \u2022 Have contact with someone diagnosed with COVID 19\r\n  \u2022 Live in or visit a place where COVID 19 is spreading"
+      },
+      "next": {
+        "if": [
+          {
+            "==": [
+              {
+                "var": "symptom_8"
+              },
+              "Yes"
+            ]
+          },
+          "9",
+          {
+            "==": [
+              {
+                "var": "symptom_8"
+              },
+              "No"
+            ]
+          },
+          "14"
+        ]
+      },
+      "actions": {
+        "yes": {
+          "order": 1,
+          "text": {
+            "eng": "Yes",
+            "amh": "Yes",
+            "orm": "Yes",
+            "tig": "Yes"
+          },
+          "value": {
+            "symptom_8": "Yes"
+          }
+        },
+        "no": {
+          "order": 2,
+          "text": {
+            "eng": "No",
+            "amh": "No",
+            "orm": "No",
+            "tig": "No"
+          },
+          "value": {
+            "symptom_8": "No"
+          }
+        }
+      }
+    },
+    "9": {
+      "type": "question",
+      "text": {
+        "eng": "Do you (they) have any of the following? (Check any)",
+        "amh": "Do you (they) have any of the following? (Check any)",
+        "orm": "Do you (they) have any of the following? (Check any)",
+        "tig": "Do you (they) have any of the following? (Check any)"
+      },
+      "multiple_choice": [
+        {
+          "text": {
+            "eng": "Fever or feeling feverish (chills, sweating)",
+            "amh": "Fever or feeling feverish (chills, sweating)",
+            "orm": "Fever or feeling feverish (chills, sweating)",
+            "tig": "Fever or feeling feverish (chills, sweating)"
+          },
+          "value": {
+            "symptom_9": "Fever or feeling feverish (chills, sweating)"
+          }
+        },
+        {
+          "text": {
+            "eng": "Cough",
+            "amh": "Cough",
+            "orm": "Cough",
+            "tig": "Cough"
+          },
+          "value": {
+            "symptom_9": "Cough"
+          }
+        },
+        {
+          "text": {
+            "eng": "Sore throat",
+            "amh": "Sore throat",
+            "orm": "Sore throat",
+            "tig": "Sore throat"
+          },
+          "value": {
+            "symptom_9": "Sore throat"
+          }
+        },
+        {
+          "text": {
+            "eng": "Muscle aches or body aches",
+            "amh": "Muscle aches or body aches",
+            "orm": "Muscle aches or body aches",
+            "tig": "Muscle aches or body aches"
+          },
+          "value": {
+            "symptom_9": "Muscle aches or body aches"
+          }
+        },
+        {
+          "text": {
+            "eng": "Vomiting or diarrhea",
+            "amh": "Vomiting or diarrhea",
+            "orm": "Vomiting or diarrhea",
+            "tig": "Vomiting or diarrhea"
+          },
+          "value": {
+            "symptom_9": "Vomiting or diarrhea"
+          }
+        },
+        {
+          "text": {
+            "eng": "Change in smell or taste",
+            "amh": "Change in smell or taste",
+            "orm": "Change in smell or taste",
+            "tig": "Change in smell or taste"
+          },
+          "value": {
+            "symptom_9": "Change in smell or taste"
+          }
+        },
+        {
+          "text": {
+            "eng": "Other symptoms",
+            "amh": "Other symptoms",
+            "orm": "Other symptoms",
+            "tig": "Other symptoms"
+          },
+          "value": {
+            "symptom_9": "Other symptoms"
+          }
+        }
+      ],
+      "next": {
+        "if": [
+          {
+            "or": [
+              {
+                "all": [
+                  {
+                    "var": "symptom_9"
+                  },
+                  {
+                    "in": [
+                      {
+                        "var": ""
+                      },
+                      [
+                        "Cough",
+                        "Fever or feeling feverish (chills, sweating)"
+                      ]
+                    ]
+                  }
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "symptom_30"
+                  },
+                  "Mild or No trouble breathing"
+                ]
+              }
+            ]
+          },
+          "11",
+          {
+            "and": [
+              {
+                "==": [
+                  {
+                    "var": "symptom_30"
+                  },
+                  "No trouble breathing"
+                ]
+              },
+              {
+                "some": [
+                  {
+                    "var": "symptom_9"
+                  },
+                  {
+                    "in": [
+                      {
+                        "var": ""
+                      },
+                      [
+                        "Sore throat",
+                        "Muscle aches or body aches",
+                        "Vomiting or diarrhea",
+                        "Change in smell or taste"
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "25",
+          {
+            "and": [
+              {
+                "==": [
+                  {
+                    "var": "symptom_30"
+                  },
+                  "No trouble breathing"
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "var": "symptom_9"
+                  },
+                  {
+                    "in": [
+                      {
+                        "var": ""
+                      },
+                      [
+                        "Other symptoms"
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "msg10"
+        ]
+      },
+      "actions": {
+        "next": {
+          "order": 1,
+          "text": {
+            "eng": "Next",
+            "amh": "Next",
+            "orm": "Next",
+            "tig": "Next"
+          }
+        }
+      }
+    },
+    "28": {
+      "type": "question",
+      "text": {
+        "eng": "What is your (their) gender?",
+        "amh": "What is your (their) gender?",
+        "orm": "What is your (their) gender?",
+        "tig": "What is your (their) gender?"
+      },
+      "next": "5",
+      "actions": {
+        "male": {
+          "order": 1,
+          "text": {
+            "eng": "Male",
+            "amh": "Male",
+            "orm": "Male",
+            "tig": "Male"
+          },
+          "value": {
+            "gender": "Male"
+          }
+        },
+        "female": {
+          "order": 2,
+          "text": {
+            "eng": "Female",
+            "amh": "Female",
+            "orm": "Female",
+            "tig": "Female"
+          },
+          "value": {
+            "gender": "Female"
+          }
+        }
+      }
+    },
+    "30": {
+      "type": "question",
+      "text": {
+        "eng": "How is your (their) breathing? Which of these are you (they) experiencing?\r\n  \u2022 Severe gasping for air or cannot talk without catching your breath\r\n  \u2022 Mild: you can get enough air in your lungs but your chest feels tight when you take a deep breath",
+        "amh": "How is your (their) breathing? Which of these are you (they) experiencing?\r\n  \u2022 Severe gasping for air or cannot talk without catching your breath\r\n  \u2022 Mild: you can get enough air in your lungs but your chest feels tight when you take a deep breath",
+        "orm": "How is your (their) breathing? Which of these are you (they) experiencing?\r\n  \u2022 Severe gasping for air or cannot talk without catching your breath\r\n  \u2022 Mild: you can get enough air in your lungs but your chest feels tight when you take a deep breath",
+        "tig": "How is your (their) breathing? Which of these are you (they) experiencing?\r\n  \u2022 Severe gasping for air or cannot talk without catching your breath\r\n  \u2022 Mild: you can get enough air in your lungs but your chest feels tight when you take a deep breath"
+      },
+      "next": {
+        "if": [
+          {
+            "==": [
+              {
+                "var": "symptom_30"
+              },
+              "Severe"
+            ]
+          },
+          "msg4",
+          "8"
+        ]
+      },
+      "actions": {
+        "severe": {
+          "order": 1,
+          "text": {
+            "eng": "Severe",
+            "amh": "Severe",
+            "orm": "Severe",
+            "tig": "Severe"
+          },
+          "value": {
+            "symptom_30": "Severe"
+          }
+        },
+        "mild": {
+          "order": 2,
+          "text": {
+            "eng": "Mild or No trouble breathing",
+            "amh": "Mild or No trouble breathing",
+            "orm": "Mild or No trouble breathing",
+            "tig": "Mild or No trouble breathing"
+          },
+          "value": {
+            "symptom_30": "Mild or No trouble breathing"
+          }
+        },
+        "no_trouble": {
+          "order": 3,
+          "text": {
+            "eng": "No trouble breathing",
+            "amh": "No trouble breathing",
+            "orm": "No trouble breathing",
+            "tig": "No trouble breathing"
+          },
+          "value": {
+            "symptom_30": "No trouble breathing"
+          }
+        }
+      }
+    },
+    "34": {
+      "type": "question",
+      "text": {
+        "eng": "Are you answering for yourself or someone else?",
+        "amh": "Are you answering for yourself or someone else?",
+        "orm": "Are you answering for yourself or someone else?",
+        "tig": "Are you answering for yourself or someone else?"
+      },
+      "next": {
+        "if": [
+          {
+            "==": [
+              {
+                "var": "answering_for"
+              },
+              "Myself"
+            ]
+          },
+          "35",
+          "35"
+        ]
+      },
+      "actions": {
+        "myself": {
+          "order": 1,
+          "text": {
+            "eng": "Myself",
+            "amh": "Myself",
+            "orm": "Myself",
+            "tig": "Myself"
+          },
+          "value": {
+            "answering_for": "Myself"
+          }
+        },
+        "someone_else": {
+          "order": 2,
+          "text": {
+            "eng": "Someone else",
+            "amh": "Someone else",
+            "orm": "Someone else",
+            "tig": "Someone else"
+          },
+          "value": {
+            "answering_for": "Someone else"
+          }
+        }
+      }
+    },
+    "msg3": {
+      "type": "message",
+      "text": {
+        "eng": "This Coronavirus Self Checker is for people who are at least 2 years old.",
+        "amh": "This Coronavirus Self Checker is for people who are at least 2 years old.",
+        "orm": "This Coronavirus Self Checker is for people who are at least 2 years old.",
+        "tig": "This Coronavirus Self Checker is for people who are at least 2 years old."
+      }
+    },
+    "msg4": {
+      "type": "message",
+      "text": {
+        "eng": "Urgent medical attention may be needed. Please call 911 or go to the Emergency Department.",
+        "amh": "Urgent medical attention may be needed. Please call 911 or go to the Emergency Department.",
+        "orm": "Urgent medical attention may be needed. Please call 911 or go to the Emergency Department.",
+        "tig": "Urgent medical attention may be needed. Please call 911 or go to the Emergency Department."
+      }
+    },
+    "msg10": {
+      "type": "message",
+      "text": {
+        "eng": "Sorry you you’re feeling ill. Stay at home and monitor your symptoms. Call your provider if you get worse.",
+        "amh": "Sorry you you’re feeling ill. Stay at home and monitor your symptoms. Call your provider if you get worse.",
+        "orm": "Sorry you you’re feeling ill. Stay at home and monitor your symptoms. Call your provider if you get worse.",
+        "tig": "Sorry you you’re feeling ill. Stay at home and monitor your symptoms. Call your provider if you get worse."
+      }
+    }
+  }

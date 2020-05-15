@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { View } from 'react-native';
 
 import { firestore } from '../../api/firebase';
 import Questions from './Questions';
@@ -29,11 +28,7 @@ const SelfCheck = () => {
     loadData();
   }, []);
 
-  return (
-    <View>
-      <Questions questions={questions} />
-    </View>
-  );
+  return <Questions questions={questions} />;
 };
 
 export default SelfCheck;
