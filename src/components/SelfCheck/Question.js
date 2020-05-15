@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { CheckBox } from 'react-native-elements';
+import { get, xor, isEmpty } from 'lodash';
 import { AppContext } from '../../context';
 import jsonLogic from 'json-logic-js';
 
@@ -9,34 +11,51 @@ const QuestionButton = ({ text, onPress }) => (
   </TouchableOpacity>
 );
 
-const QuestionMultipleChoice = ({ choices = [], locale, onPress }) => {
-  const [userSelection, setUserSelection] = useState([]);
-
+const QuestionMultipleChoice = ({ choices = [], valueKey }) => {
   if (!choices.length) return null;
 
-  const handleChoiceClick = (clicked) => {
-    //onPress
+  const {
+    locale,
+    state: { userResponse = {} },
+    setUserResponse,
+  } = React.useContext(AppContext);
+
+  const handleChoiceClick = (checked) => {
+    // Remove if it's already selected, or add otherwise.
+    const newSelection = xor(userResponse[valueKey], [checked]);
+    setUserResponse({ [valueKey]: newSelection });
   };
 
-  return (
-    <View style={styles.choiceWrapper}>
-      {choices.map((choice, index) => (
-        <TouchableOpacity
-          key={index}
-          onPress={() => handleChoiceClick(choice.text[locale])}
-          style={styles.choice}
-        >
-          <Text>{choice.text[locale]}</Text>
-        </TouchableOpacity>
-      ))}
-    </View>
-  );
+  return choices.map((choice, index) => {
+    const title = choice.text[locale];
+    const selection = get(userResponse, valueKey)
+      ? get(userResponse, valueKey)
+      : [];
+    return (
+      <CheckBox
+        key={index}
+        title={title}
+        checked={selection.indexOf(title) !== -1}
+        onPress={() => handleChoiceClick(title)}
+      />
+    );
+  });
 };
 
 const Question = ({ question = {}, onNext }) => {
-  const { locale } = React.useContext(AppContext);
+  const {
+    t,
+    locale,
+    state: { userResponse },
+    setUserResponse,
+  } = React.useContext(AppContext);
 
-  const [userSelection, setUserSelection] = useState([]);
+  if (isEmpty(question))
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text style={{ fontSize: 20 }}>{t('ALERT_QUESTION_MISSING')}</Text>
+      </View>
+    );
 
   let actions = question.actions || {};
 
@@ -48,38 +67,71 @@ const Question = ({ question = {}, onNext }) => {
       return actions[category];
     });
 
+  const valueKey = question['value_key'] || 'unknown_key';
+
+  const getNext = (nextObject, actionValue = {}) => {
+    let next = JSON.parse(nextObject) || null;
+    // if next is object, that means it's a JSON logic rule.
+    if (typeof next === 'object') {
+      try {
+        next = jsonLogic.apply(next, {
+          ...userResponse,
+          ...actionValue,
+        });
+      } catch (error) {
+        return null;
+      }
+    }
+    return next;
+  };
+
+  console.log(userResponse);
+
   return (
     <View style={styles.container}>
       <View style={{ marginBottom: 20 }}>
         <Text style={styles.titleStyle}>{question.text[locale]}</Text>
       </View>
 
-      <View style={styles.buttonContainer}>
+      <View style={styles.actionContainer}>
         <>
           {Object.keys(actions).map((key) => {
+            const choices = question['multiple_choice'] || [];
             return (
               <View key={key}>
                 {/* Multiple choice */}
-
-                <QuestionMultipleChoice
-                  locale={locale}
-                  choices={question['multiple_choice']}
-                />
+                <View style={styles.choiceContainer}>
+                  <QuestionMultipleChoice
+                    choices={choices}
+                    valueKey={valueKey}
+                  />
+                </View>
 
                 {/* Buttons */}
                 <QuestionButton
                   text={actions[key].text[locale]}
                   onPress={() => {
-                    const value = actions[key].value || {};
-                    let next = JSON.parse(question.next) || null;
+                    if (choices.length) {
+                      const selection = get(userResponse, valueKey)
+                        ? get(userResponse, valueKey)
+                        : [];
 
-                    // if next is object, that means it's a JSON logic rule.
-                    if (typeof next === 'object') {
-                      next = jsonLogic.apply(next, value);
-                    }
+                      let next = getNext(question.next);
 
-                    if (next && onNext) {
-                      onNext(next, { ...value, ...choices });
+                      if (selection.length) {
+                        onNext(next);
+                      } else {
+                        alert(t('ALERT_MISSING_CHOICE'));
+                      }
+                    } else {
+                      const actionValue = actions[key].value || {};
+
+                      let next = getNext(question.next, actionValue);
+
+                      if (actionValue) {
+                        setUserResponse(actionValue);
+                        onNext(next);
+                      }
                     }
                   }}
                 />
@@ -110,17 +162,14 @@ const styles = StyleSheet.create({
   },
   action: {
     alignSelf: 'stretch',
-    marginBottom: 10,
-    padding: 10,
+    paddingVertical: 15,
+    paddingHorizontal: 10,
     backgroundColor: '#e8e8e8',
     borderRadius: 5,
   },
-  choiceWrapper: {
+  actionContainer: { marginBottom: 20 },
+  choiceContainer: {
     marginBottom: 20,
-  },
-  choice: {
-    alignSelf: 'stretch',
-    paddingVertical: 10,
   },
   actionText: { fontSize: 16 },
   questions: {

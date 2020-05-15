@@ -22,6 +22,7 @@ const initialState = {
     age: null,
     ethnicity: null,
   },
+  userResponse: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -30,6 +31,11 @@ const reducer = (state = initialState, action) => {
       return { ...state, locale: action.payload };
     case 'SET_USER_PROFILE':
       return { ...state, user: { ...state.user, ...action.payload } };
+    case 'SET_USER_RESPONSE':
+      return {
+        ...state,
+        userResponse: { ...state.userResponse, ...action.payload },
+      };
 
     default:
       return initialState;
@@ -49,6 +55,8 @@ export const AppContextProvider = ({ children }) => {
     },
     setUserProfile: (value) =>
       dispatch({ type: 'SET_USER_PROFILE', payload: value }),
+    setUserResponse: (value) =>
+      dispatch({ type: 'SET_USER_RESPONSE', payload: value }),
   };
 
   const localizationContext = React.useMemo(

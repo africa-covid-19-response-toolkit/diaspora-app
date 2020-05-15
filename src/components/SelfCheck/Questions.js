@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { isEmpty, remove } from 'lodash';
+import { isEmpty, xor } from 'lodash';
 import { View, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import Icon from '@expo/vector-icons/FontAwesome5';
 import Question from './Question';
@@ -18,7 +18,7 @@ const Questions = ({ questions = {} }) => {
       let newHistory = history;
 
       if (history.length) {
-        newHistory = history.filter((h) => h !== currentQuestion);
+        newHistory = xor(history, [currentQuestion]);
       }
 
       setHistory(newHistory);
