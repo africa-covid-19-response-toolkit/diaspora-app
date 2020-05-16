@@ -36,11 +36,19 @@ target 'tracker' do
   pod 'glog', :podspec => "#{rnPrefix}/third-party-podspecs/glog.podspec"
   pod 'Folly', :podspec => "#{rnPrefix}/third-party-podspecs/Folly.podspec"
 
+  # add the Firebase pod for Google Analytics
+  pod 'Firebase/Analytics'
+  # add pods for any other desired Firebase products
+  # https://firebase.google.com/docs/ios/setup#available-pods
+
   # Other native modules
+  
 
   # Automatically detect installed unimodules
   use_unimodules!
 
   # react-native-cli autolinking
   use_native_modules!
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
 end
