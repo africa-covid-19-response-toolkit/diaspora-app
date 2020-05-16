@@ -14,9 +14,16 @@
     "ACTION_BUTTON_START_OVER": "እንደና ይጀምሩ",
     "ACTION_BUTTON_MALE": "ወንድ",
     "ACTION_BUTTON_FEMALE": "ሴት",
+    "PLACE_HOLDER_ZIP": "ZIP code",
+    "PLACE_HOLDER_AGE": "Enter your age...",
     "TITLE_USER_LOCATION": "የሚኖሩበት አካባቢ የት ነው?",
-    "TITLE_USER_LOCATION_DESCRIPTION": "This helps track the virus\\'s spread, and you can learn about what\\'s reported nearby",
-    "TITLE_USER_GENDER": "What\\'s is your gender?",
+    "TITLE_USER_LOCATION_DESCRIPTION": "This helps track the virus's spread, and you can learn about what's reported nearby",
+    "TITLE_USER_GENDER": "ጾታው ምንድን ነው?",
     "TITLE_USER_AGE": "ዕድሜዎ ምን ያህል ነው?",
-    "PLACE_HOLDER_ZIP": "ZIP code"
+    "TITLE_DISCLAIMER": "Disclaimer",
+    "CONSENT": "The purpose of the Coronavirus Self-Checker is to help you make decisions about seeking appropriate medical care. This system is not intended for the diagnosis or treatment of disease or other conditions, including COVID-19. This system is intended only for people who are currently located in the United States.",
+    "TITLE_INSTRUCTION": "Instruction",
+    "INSTRUCTION": "Hi, we are here to guide you through the Coronavirus Self-Checker.\r\n\r\nIf you are experiencing a life-threatening emergency, please call 911 immediately.\r\n\r\nThis app does not replace the judgment of healthcare professionals or the performance of any clinical assessment.\r\n\r\nTo provide information on the right level of care, we are going to ask you a series of questions.",
+    "ALERT_QUESTION_MISSING": "Next question is missing",
+    "ALERT_MISSING_CHOICE": "Please select an option to continue"
 }

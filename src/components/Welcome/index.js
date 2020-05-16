@@ -20,7 +20,7 @@ const Welcome = ({ navigation }) => {
           buttonStyle={styles.buttonStyle}
           titleStyle={styles.buttonText}
           title={t('ACTION_BUTTON_CONTINUE')}
-          onPress={() => navigation.navigate('Instruction')}
+          onPress={() => navigation.navigate('Consent')}
         />
       </View>
     </View>
