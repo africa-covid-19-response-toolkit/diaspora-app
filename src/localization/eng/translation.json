@@ -8,6 +8,8 @@
     "TABS_HOME": "Home",
     "TABS_CHECK": "Check",
     "TABS_STATS": "Stats",
+    "TABS_JOBS": "Jobs",
+    "ACTION_JOBS_REGISTER": "Register",
     "ACTION_BUTTON_YES": "Yes",
     "ACTION_BUTTON_NO": "No",
     "ACTION_BUTTON_NOT_SURE": "I'm not sure",

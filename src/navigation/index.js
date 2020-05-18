@@ -34,15 +34,17 @@ import Age from '../components/Welcome/Age';
 import Sex from '../components/Welcome/Sex';
 import Ethnicity from '../components/Welcome/Ethnicity';
 import { AppContext } from '../context';
+import JobsScreen from '../screens/JobsScreen';
 
 const DEFAULT_LOCALE = 'eng';
 
 const headerOptions = (props) => ({
-  headerTitle: () => (
-    <TouchableOpacity onPress={() => auth().signOut()}>
-      <Text>Temp Sign out REMOVE ME!!!</Text>
-    </TouchableOpacity>
-  ),
+  headerTitle: null,
+  // headerTitle: () => (
+  //   <TouchableOpacity onPress={() => auth().signOut()}>
+  //     <Text>Temp Sign out REMOVE ME!!!</Text>
+  //   </TouchableOpacity>
+  // ),
   headerStyle: { backgroundColor: '#fdd30e' },
   headerLeft: () => (
     <View
@@ -120,6 +122,13 @@ const FullScreenStackScreen = () => (
   </FullScreenStack.Navigator>
 );
 
+const JobsStack = createStackNavigator();
+const JobsStackStackScreen = () => (
+  <JobsStack.Navigator screenOptions={(props) => headerOptions(props)}>
+    <JobsStack.Screen name="Jobs" component={JobsScreen} />
+  </JobsStack.Navigator>
+);
+
 const AppTabs = createBottomTabNavigator();
 const AppTabsScreen = () => {
   const { t } = React.useContext(AppContext);
@@ -163,6 +172,20 @@ const AppTabsScreen = () => {
           tabBarLabel: t('TABS_STATS'),
           tabBarIcon: (props) => (
             <Ionicons name="ios-stats" size={props.size} color={props.color} />
+          ),
+        }}
+      />
+      <AppTabs.Screen
+        name="Jobs"
+        component={JobsStackStackScreen}
+        options={{
+          tabBarLabel: t('TABS_JOBS'),
+          tabBarIcon: (props) => (
+            <Ionicons
+              name="ios-briefcase"
+              size={props.size}
+              color={props.color}
+            />
           ),
         }}
       />

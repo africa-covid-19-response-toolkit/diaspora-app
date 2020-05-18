@@ -19,6 +19,7 @@
     "expo-localization": "~8.1.0",
     "expo-location": "~8.1.0",
     "expo-updates": "~0.1.2",
+    "expo-web-browser": "^8.2.1",
     "firebase": "7.9.0",
     "i18n-js": "^3.5.1",
     "json-logic-js": "^1.2.2",

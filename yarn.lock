@@ -3442,7 +3442,7 @@ expo-updates@~0.1.2:
   dependencies:
     fbemitter "^2.1.1"
 
-expo-web-browser@~8.2.1:
+expo-web-browser@^8.2.1, expo-web-browser@~8.2.1:
   version "8.2.1"
   resolved "https://registry.yarnpkg.com/expo-web-browser/-/expo-web-browser-8.2.1.tgz#993ba53371862ed85cfd277ba59a7004ed412905"
   integrity sha512-cENMuq6nhHRdJlEt0Fk1cPDK5aid8+znJeO6rFoIs7+PokMKtcVYBpzQI/TJlxRP3pjMm0qOISnLlMbDlZ+bfg==

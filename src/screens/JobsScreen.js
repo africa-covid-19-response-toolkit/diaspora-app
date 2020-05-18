@@ -1,23 +1,21 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import SelfCheck from '../components/SelfCheck';
+import Jobs from '../components/Jobs';
 
-const SelfCheckScreen = ({ navigation }) => {
+const JobsScreen = () => {
   return (
     <View style={styles.container}>
-      <SelfCheck />
+      <Jobs />
     </View>
   );
 };
 
-export default SelfCheckScreen;
+export default JobsScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'flex-start',
     padding: 16,
   },
 });
