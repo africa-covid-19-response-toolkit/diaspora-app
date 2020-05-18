@@ -4,12 +4,14 @@ import { View, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import Icon from '@expo/vector-icons/FontAwesome5';
 import Question from './Question';
 
+const FIRST_QUESTION = '1';
+
 const Questions = ({ questions = {} }) => {
   if (isEmpty(questions)) return null;
 
   const [answers, setAnswers] = useState({});
-  const [currentQuestion, setCurrentQuestion] = useState('13');
-  const [history, setHistory] = useState(['13']);
+  const [currentQuestion, setCurrentQuestion] = useState(FIRST_QUESTION);
+  const [history, setHistory] = useState([FIRST_QUESTION]);
 
   const gotoPrevious = () => {
     const previous = history[history.indexOf(currentQuestion) - 1];
