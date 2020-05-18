@@ -95,8 +95,6 @@ const Question = ({ question = {}, onNext }) => {
     return next;
   };
 
-  console.log(userResponse);
-
   return (
     <View style={styles.container}>
       <View style={{ marginBottom: 20 }}>

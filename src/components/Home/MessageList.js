@@ -23,10 +23,11 @@ const MessageList = ({ navigation }) => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    const subscriber = firestore()
+    const unsubscribe = firestore()
       .collection('messages')
       .onSnapshot(handleOnSnapshot, handleError);
-    return subscriber; // unsubscribe on unmount
+    // Stop listening for updates when no longer required
+    return () => unsubscribe();
   }, []);
 
   const handleOnSnapshot = (snapShot) => {
