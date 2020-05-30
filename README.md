@@ -19,7 +19,14 @@
     appId: "xxx",
     measurementId: "xxx"
   };
+
+  export default firebaseConfig;
 ```
+
+## Steps
+
+1. Install Expo CLI
+2. Start expo using this command `NODE_OPTIONS=--max-old-space-size=4096 expo start --ios`
 
 ## iOS Setup
 
@@ -52,5 +59,7 @@ yarn install
 - Start app in a specific platform, platform could be `web`, `ios` or `android`
 
 ```
-yarn <platform> 
+yarn <platform>
 ```
+
+# Known bugs
