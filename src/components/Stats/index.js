@@ -23,8 +23,6 @@ const Stats = () => {
       try {
         const location = await currentLocation();
 
-        console.log(location);
-
         setDeviceLocation(location);
         if (!isEmpty(location) && location.state) {
           const state = location.state.toLowerCase();
