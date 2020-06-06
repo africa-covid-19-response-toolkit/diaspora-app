@@ -27,5 +27,11 @@
     "TITLE_INSTRUCTION": "Instruction",
     "INSTRUCTION": "Hi, we are here to guide you through the Coronavirus Self-Checker.\r\n\r\nIf you are experiencing a life-threatening emergency, please call 911 immediately.\r\n\r\nThis app does not replace the judgment of healthcare professionals or the performance of any clinical assessment.\r\n\r\nTo provide information on the right level of care, we are going to ask you a series of questions.",
     "ALERT_QUESTION_MISSING": "Next question is missing",
-    "ALERT_MISSING_CHOICE": "Please select an option to continue"
+    "ALERT_MISSING_CHOICE": "Please select an option to continue",
+    "STATS_LABEL_POSITIVE": "Positive",
+    "STATS_LABEL_RECOVERED": "Recovered",
+    "STATS_LABEL_HOSPITALIZED": "Hospitalized",
+    "STATS_LABEL_DEATH": "Death",
+    "STATS_LABEL_ICU": "ICU",
+    "STATS_LABEL_VENTILATOR": "Ventilator"
 }

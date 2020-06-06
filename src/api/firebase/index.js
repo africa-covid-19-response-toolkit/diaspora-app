@@ -10,12 +10,15 @@ import config from './config';
 firebase.initializeApp(config);
 // firebase.analytics();
 
+// Uncomment this while running firebase emulator.
+if (process.env.NODE_ENV === 'development') {
+  firebase.firestore().settings({
+    host: 'localhost:8080',
+    ssl: false,
+  });
+}
+
 // Export firebase stuff.
 export const { auth, firestore, storage, functions } = firebase;
-
-// Uncomment this while running firebase emulator.
-// if (process.env.NODE_ENV === 'development') {
-//   firebase.functions().useFunctionsEmulator('http://localhost:5001');
-// }
 
 export default firebase;

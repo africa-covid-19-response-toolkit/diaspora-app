@@ -10,14 +10,12 @@ export default StyleSheet.create({
   contentWrapper: {
     marginHorizontal: 10,
     paddingVertical: 10,
-    textAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
   },
   cardIcon: {
     paddingVertical: 10,
     marginTop: 10,
-    textAlign: 'center',
     alignSelf: 'center',
   },
   cardTitleText: {

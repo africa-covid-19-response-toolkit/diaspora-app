@@ -21,7 +21,7 @@ import SelfCheckScreen from '../screens/SelfCheckScreen';
 import LanguageSelect from '../components/LanguageSelect';
 
 // Screens
-import HomeScreen from '../screens/HomeScreen';
+// import HomeScreen from '../screens/HomeScreen';
 import StatsScreen from '../screens/StatsScreen';
 import SignInScreen from '../screens/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen';
@@ -94,12 +94,12 @@ const AuthStackScreen = () => (
   </AuthStack.Navigator>
 );
 
-const HomeStack = createStackNavigator();
-const HomeStackScreen = () => (
-  <HomeStack.Navigator screenOptions={(props) => headerOptions(props)}>
-    <HomeStack.Screen name="Home" component={HomeScreen} />
-  </HomeStack.Navigator>
-);
+// const HomeStack = createStackNavigator();
+// const HomeStackScreen = () => (
+//   <HomeStack.Navigator screenOptions={(props) => headerOptions(props)}>
+//     <HomeStack.Screen name="Home" component={HomeScreen} />
+//   </HomeStack.Navigator>
+// );
 
 const SelfCheckStack = createStackNavigator();
 const SelfCheckStackScreen = () => (
@@ -141,7 +141,7 @@ const AppTabsScreen = () => {
         tabStyle: { backgroundColor: '#fdd30e' },
       }}
     >
-      <AppTabs.Screen
+      {/* <AppTabs.Screen
         name="Home"
         component={HomeStackScreen}
         options={{
@@ -150,7 +150,7 @@ const AppTabsScreen = () => {
             <Ionicons name="ios-home" size={props.size} color={props.color} />
           ),
         }}
-      />
+      /> */}
       <AppTabs.Screen
         name="Check"
         component={SelfCheckStackScreen}
@@ -165,16 +165,7 @@ const AppTabsScreen = () => {
           ),
         }}
       />
-      <AppTabs.Screen
-        name="Stats"
-        component={StatsStackScreen}
-        options={{
-          tabBarLabel: t('TABS_STATS'),
-          tabBarIcon: (props) => (
-            <Ionicons name="ios-stats" size={props.size} color={props.color} />
-          ),
-        }}
-      />
+
       <AppTabs.Screen
         name="Jobs"
         component={JobsStackStackScreen}
@@ -186,6 +177,17 @@ const AppTabsScreen = () => {
               size={props.size}
               color={props.color}
             />
+          ),
+        }}
+      />
+
+      <AppTabs.Screen
+        name="Stats"
+        component={StatsStackScreen}
+        options={{
+          tabBarLabel: t('TABS_STATS'),
+          tabBarIcon: (props) => (
+            <Ionicons name="ios-stats" size={props.size} color={props.color} />
           ),
         }}
       />

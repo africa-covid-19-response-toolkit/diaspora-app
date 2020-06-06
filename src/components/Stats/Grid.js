@@ -129,6 +129,8 @@ class Grid extends React.Component {
       <FlatList
         data={rows}
         ListHeaderComponent={header}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
         renderItem={({ item, index }) =>
           this.renderRow({
             rowItems: item,

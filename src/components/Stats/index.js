@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
-import { firestore } from '../../api/firebase';
+import { isEmpty } from 'lodash';
 
 import Grid from './Grid';
 import Card from './Card';
@@ -8,37 +8,88 @@ import Loading from '../Loading';
 
 // Context.
 import { AppContext } from '../../context';
+import useCurrentLocation from '../../hooks/useCurrentLocation';
 
 const Stats = () => {
+  const [deviceLocation, setDeviceLocation] = useState({});
   const [statsData, setStatsData] = useState([]);
   const [dataAvailability, setDataAvailability] = useState(true);
 
-  const { locale } = React.useContext(AppContext);
+  const { currentLocation } = useCurrentLocation();
+  const { t } = React.useContext(AppContext);
 
   useEffect(() => {
-    const unsubscribe = firestore()
-      .collection('stats/app-stat-cards/data')
-      .onSnapshot(handleOnSnapshot, handleError);
+    const getData = async () => {
+      try {
+        const location = await currentLocation();
 
-    // Stop listening for updates when no longer required
-    return () => unsubscribe();
+        console.log(location);
+
+        setDeviceLocation(location);
+        if (!isEmpty(location) && location.state) {
+          const state = location.state.toLowerCase();
+          if (!state) return;
+          const response = await fetch(
+            `https://covidtracking.com/api/v1/states/${state}/current.json`
+          );
+          const data = await response.json();
+          const {
+            positive,
+            death,
+            hospitalizedCurrently,
+            recovered,
+            inIcuCurrently,
+            onVentilatorCurrently,
+          } = data;
+          const stats = [
+            {
+              label: t('STATS_LABEL_POSITIVE'),
+              stat: positive || 0,
+              cardColor: '#9c27b0',
+              icon: 'users',
+            },
+            {
+              label: t('STATS_LABEL_DEATH'),
+              stat: death || 0,
+              cardColor: '#000000',
+              icon: 'user',
+            },
+            {
+              label: t('STATS_LABEL_HOSPITALIZED'),
+              stat: hospitalizedCurrently || 0,
+              cardColor: '#2196f3',
+              icon: 'hospital',
+            },
+            {
+              label: t('STATS_LABEL_RECOVERED'),
+              stat: recovered || 0,
+              cardColor: '#4caf50',
+              icon: 'heartbeat',
+            },
+            {
+              label: t('STATS_LABEL_ICU'),
+              stat: inIcuCurrently || 0,
+              cardColor: '#f44336',
+              icon: 'bed',
+            },
+            {
+              label: t('STATS_LABEL_VENTILATOR'),
+              stat: onVentilatorCurrently || 0,
+              cardColor: '#fdd835',
+              icon: 'gas-cylinder',
+            },
+          ];
+
+          setStatsData(stats);
+        }
+      } catch (error) {
+        console.log(error);
+        dataAvailability(false);
+      }
+    };
+
+    getData();
   }, []);
-
-  const handleOnSnapshot = (snapshot) => {
-    if (!snapshot.empty) {
-      let list = [];
-      snapshot.forEach((doc) => {
-        if (doc.exists) list = [...list, { id: doc.id, ...doc.data() }];
-      });
-
-      setStatsData(list);
-    }
-  };
-
-  const handleError = (error) => {
-    console.log(error.message);
-    setDataAvailability(false);
-  };
 
   return (
     <View style={styles.container}>
@@ -48,18 +99,25 @@ const Stats = () => {
         ) : (
           <View style={styles.gridWrapper}>
             <Grid
+              header={
+                !isEmpty(deviceLocation) && (
+                  <Text
+                    style={styles.locationText}
+                  >{`${deviceLocation.city}, ${deviceLocation.state}`}</Text>
+                )
+              }
               itemDimension={150}
               items={statsData}
               numofLoadingItems={6}
               spacing={10}
               isLoading={statsData.length < 1 ? true : false}
-              renderItem={(item) => {
+              renderItem={({ item }) => {
                 return (
                   <Card
-                    title={item.item.text[locale]}
-                    stat={item.item.stat}
-                    icon={item.item.icon}
-                    cardColor={item.item.cardColor}
+                    title={item.label}
+                    stat={item.stat}
+                    icon={item.icon}
+                    cardColor={item.cardColor}
                   />
                 );
               }}
@@ -92,5 +150,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 14,
     height: Dimensions.get('window').height - 50,
+  },
+  locationText: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 20,
+    paddingVertical: 10,
   },
 });
